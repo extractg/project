@@ -1,0 +1,199 @@
+{
+    "home": {
+        "lv": "SĀKUMS",
+        "en": "HOME"
+    },
+    "courses": {
+        "lv": "KURSI",
+        "en": "COURSES"
+    },
+    "your_cv": {
+        "lv": "VEIDNES",
+        "en": "TEMPLATES"
+    },
+    "blog": {
+        "lv": "KONTAKTI",
+        "en": "CONTACTS"
+    },
+    "profile": {
+        "lv": "Mans Profils",
+        "en": "My Profile"
+    },
+    "hero_title": {
+        "lv": "CV kursi un bezmaksas veidne jūsu CV izveidei",
+        "en": "CV Courses and Free Template For Your Own CV"
+    },
+    "hero_subtitle": {
+        "lv": "Izvēlieties bezmaksas CV veidni un izveidojiet savu CV dažu minūšu laikā!",
+        "en": "Pick a resume template for free and build your resume in a few minutes!"
+    },
+    "create_resume": {
+        "lv": "Izveidot CV",
+        "en": "Create Resume"
+    },
+    "select_template":{
+        "lv": "Izvēlieties Veidni",
+        "en": "Select Template"
+    },
+    "courses_title": {
+        "lv": "Iegādājieties kursu, lai iemācītos rakstīt savu CV un motivācijas vēstuli",
+        "en": "Buy Course To Learn How To Write Your Own CV and Motivation Letter"
+    },
+    "courses_description": {
+        "lv": "Pēc kursa pabeigšanas jūs saņemsiet sertifikātu no CareerCraft un varēsiet izmantot iegūtās prasmes veiksmīgai darba pieteikšanai. Lai uzlabotu savas prasmes, iegādājieties kursu jau šodien!",
+        "en": "After completing the courses, you will successfully receive a certificate from CareerCraft, and you will be able to use your acquired skills for a successful job application."
+    },
+    "btn_buy_course": {
+        "lv": "Pirkt kursu tagad",
+        "en": "Buy Course Now"
+    },
+    "course_price": {
+        "lv": "9.99 EUR",
+        "en": "9.99 EUR"
+    },
+    "optimize_title": {
+        "lv": "Optimizējiet savu saturu ar mūsu palīgiem un ekspertu padomiem",
+        "en": "Optimize your content with our assistants and expert tips"
+    },
+    "optimize_text": {
+        "lv": "Augšupielādējiet savu CV vai motivācijas vēstuli, un mēs palīdzēsim to sakārtot un optimizēt.",
+        "en": "Upload your CV or Motivation Letter and we can help you to organize and optimize it."
+    },
+    "help_title": {
+        "lv": "Kā mēs varam jums palīdzēt?",
+        "en": "How We Can Help You?"
+    },
+    "help_resume_title": {
+        "lv": "CV Izveidotājs",
+        "en": "Resume Builder"
+    },
+    "help_resume_text": {
+        "lv": "Izveidojiet profesionālu CV ar mūsu pielāgojamiem veidnēm un ekspertu padomiem. Sāciet jau tagad!",
+        "en": "Easily create a professional resume with our customizable templates and expert tips. Get started in minutes!"
+    },
+    "help_ats_title": {
+        "lv": "ATS Optimizētas veidnes",
+        "en": "ATS-Optimized Templates"
+    },
+    "help_ats_text": {
+        "lv": "Palieliniet iespējas iziet cauri pirmajam atlases posmam, izmantojot mūsu speciālistu izstrādātās ATS-draudzīgās veidnes.",
+        "en": "Increase your chances of passing the first hiring stage with our ATS-friendly CV templates, designed by recruitment experts."
+    },
+    "help_review_title": {
+        "lv": "CV un motivācijas vēstules pārskats",
+        "en": "Resume & CV Review"
+    },
+    "help_review_text": {
+        "lv": "Augšupielādējiet savu CV ātrai pārbaudei. Mūsu sistēma analizēs un sniegs ieteikumus satura optimizēšanai.",
+        "en": "Upload your resume for a quick review. Our system will analyze and provide suggestions to optimize your content."
+    },
+    "help_guidance_title": {
+        "lv": "Bezmaksas karjeras konsultācijas",
+        "en": "Free Career Guidance"
+    },
+    "help_guidance_text": {
+        "lv": "Piekļūstiet karjeras padomiem, CV rakstīšanas ieteikumiem un darba pieteikumu stratēģijām, lai iegūtu savu sapņu darbu.",
+        "en": "Access career advice, resume-writing tips, and job application strategies to land your dream job."
+    },
+    "quality": {
+        "lv": "LABĀKĀ KVALITĀTE",
+        "en": "BEST QUALITY"
+    },
+    "new_templates": {
+        "lv": "JAUNAS VEIDNES",
+        "en": "NEW TEMPLATES"
+    },
+    "free_use": {
+        "lv": "BEZMAKSAS IZMANTOŠĀNA",
+        "en": "FREE TO USE"
+    },
+    "grid_courses": {
+        "lv": "KURSI",
+        "en": "COURSES"
+    },
+    "assistant_team": {
+        "lv": "PALĪGU KOMANDA",
+        "en": "ASSISTANT TEAM"
+    },
+    "your_cv_title": {
+        "lv": "JŪSU CV",
+        "en": "YOUR CV"
+    },
+    "cv_main_title": {
+        "lv": "Vai vēlaties palielināt savas izredzes iegūt jaunu darbu ar ekspertu palīdzību?",
+        "en": "Want to boost your chances of landing a new job with expert assistance?"
+    },
+    "breadcrumb_home": {
+        "lv": "Mājas",
+        "en": "Home"
+    },
+    "breadcrumb_your_cv": {
+        "lv": " > Jūsu CV",
+        "en": " > Your CV"
+    },
+    "cv_description": {
+        "lv": "Nosūtiet mums savu CV vai motivācijas vēstuli, un mēs palīdzēsim jums to uzlabot, lai iegūtu pirmo vai nākamo darbu. Mūsu asistenti palīdzēs jums izveidot profesionālu CV un motivācijas vēstuli, nodrošinot augstu kvalitāti un ātrus rezultātus, lai palielinātu jūsu izredzes uz panākumiem!",
+        "en": "Send us your CV or Motivation Letter, and we will help you improve it to land your first or next job. Our assistants will guide you in creating a professional CV and motivation letter, ensuring high-quality and fast results to boost your chances of success!"
+    },
+    "cv_upload_title": {
+        "lv": "Augšupielādējiet savu CV un motivācijas vēstuli šeit",
+        "en": "Upload Your CV & Motivation Letter Here"
+    },
+    "cv_upload_info": {
+        "lv": "Tikai PDF un DOCX. Maksimālais faila lielums 5 MB",
+        "en": "PDF & DOCX only. Max 5MB file"
+    },
+    "cv_upload_btn": {
+        "lv": "Augšupielādēt failu",
+        "en": "Upload Your File"
+    },
+    "login_title": {
+        "lv": "Pieteikšanās",
+        "en": "Login"
+    },
+    "email_label": {
+        "lv": "E-pasts",
+        "en": "Email"
+    },
+    "email_placeholder": {
+        "lv": "Ievadiet savu e-pastu",
+        "en": "Enter your email"
+    },
+    "password_label": {
+        "lv": "Parole",
+        "en": "Password"
+    },
+    "password_placeholder": {
+        "lv": "Ievadiet savu paroli",
+        "en": "Enter your password"
+    },
+    "forgot_password": {
+        "lv": "Aizmirsāt paroli?",
+        "en": "Forgot Password?"
+    },
+    "sign_in": {
+        "lv": "Pieslēgties",
+        "en": "Sign in"
+    },
+    "or_continue": {
+        "lv": "Vai turpināt ar",
+        "en": "Or Continue With"
+    },
+    "register_text": {
+        "lv": "Vai jums vēl nav konta?",
+        "en": "Don't have an account yet?"
+    },
+    "register_link": {
+        "lv": "Reģistrēties bez maksas",
+        "en": "Register for free"
+    }
+}
+    
+    
+
+
+    
+
+    
+    
+    

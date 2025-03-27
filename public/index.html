@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerCraft - CV Builder</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="/public/js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="/public/images/logo.png" alt="logo">
+        <span>CareerCraft</span>
+      </div>
+      <div class="nav-bar">
+        <nav>
+          <a id="nav-home" href="index.html">SĀKUMS</a>
+          <a id="nav-courses" href="#courses">KURSI</a>
+          <a id="#pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+          <a id="nav-cv" href="templates.html">VEIDNES</a>
+          <a id="nav-blog" href="blog.html">KONTAKTI</a>
+          <div class="profile-container">
+            <a id="nav-profile" href="profile.html" class="profile-btn">Mans Profils</a>
+            <div class="language-container">
+              <button id="language-switcher" class="lang-btn">LV</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1 id="hero-title">CV kursi un bezmaksas veidne jūsu CV izveidei</h1>
+      <p id="hero-subtitle">
+        Izvēlieties bezmaksas CV veidni un izveidojiet savu CV dažu minūšu laikā!
+      </p>
+      <a id="create-resume" href="#" class="btn primary">Izveidot CV</a>
+    </div>
+  </section>
+
+  <!-- Template Selection Section -->
+  <section class="templates">
+    <div class="carousel-container">
+      <button class="prev">&#10094;</button>
+      <div class="carousel">
+        <!-- FIX: Убрали лишнюю вложенность .carousel-track -->
+        <div class="carousel-track">
+          <div class="template">
+            <img src="/public/images/cv-template1.png" alt="CV Template 1">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template2.png" alt="CV Template 2">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template3.png" alt="CV Template 3">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template4.png" alt="CV Template 4">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template5.png" alt="CV Template 5">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template6.png" alt="CV Template 6">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template7.png" alt="CV Template 7">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template8.png" alt="CV Template 8">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+          <div class="template border-glass">
+            <img src="/public/images/cv-template9.png" alt="CV Template 9">
+            <a href="#" class="btn select select-template">Izvēlieties Veidni</a>
+          </div>
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+  
+  <!-- COURSES SECTION -->
+  <section class="Courses" id="courses">
+    <div class="courses-container" data-aos="fade-up" data-aos-duration="800" data-aos-offset="300" data-aos-once="true">
+      <h1 id="courses-title">
+        Iegādājieties kursu, lai iemācītos rakstīt savu CV un motivācijas vēstuli
+      </h1>
+      <p id="courses-description">
+        Pēc kursa pabeigšanas jūs saņemsiet sertifikātu no CareerCraft un varēsiet
+        izmantot iegūtās prasmes veiksmīgai darba pieteikšanai. Lai uzlabotu savas
+        prasmes, iegādājieties kursu jau šodien!
+      </p>
+      <button class="btn primary" id="btn-buy-course">Pirkt kursu tagad</button>
+      <div class="price-tag">
+        <span class="price" id="course-price">9.99 EUR</span>
+      </div>
+      <div class="img">
+        <div class="sertificate-container">
+          <img src="/public/images/sertificate.png" alt="sertificate" class="sertificate">
+        </div>
+        <div class="background-elements">
+          <img src="/public/images/abstract.png" alt="abstract" class="abstract">
+          <img src="/public/images/plane_bg.png" alt="plane_bg" class="plane_bg">
+          <img src="/public/images/letter_background.png" alt="letter_background" class="letter_background">
+          <div class="ellipse-1"></div>
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+        </div>
+      </div>
+    </div> <!-- FIX: Закрыли .courses-container -->
+  </section>
+
+  <!-- OPTIMIZE SECTION -->
+  <section class="optimize">
+    <div class="border">
+      <h1 id="optimize-title" data-aos="fade-up" data-aos-duration="300" data-aos-offset="500">
+        Optimizējiet savu saturu ar mūsu palīgiem un ekspertu padomiem
+      </h1>
+      <p id="optimize-text" data-aos="fade-up" data-aos-duration="300" data-aos-offset="500">
+        Augšupielādējiet savu CV vai motivācijas vēstuli, un mēs palīdzēsim to sakārtot un optimizēt.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid grid-3">
+    <div class="autoBlur" id="quality">LABĀKĀ KVALITĀTE</div>
+    <div class="autoBlur" id="new-templates">JAUNAS VEIDNES</div>
+    <div class="autoBlur" id="free-use">BEZMAKSAS IZMANTOŠĀNA</div>
+    <div class="autoBlur" id="grid-courses">KURSI</div>
+    <div class="autoBlur" id="assistant-team">PALĪGU KOMANDA</div>
+  </section>
+
+  <section class="your-cv" id="pakalpojumi">
+    <div class="content-wrapper">
+      <div class="cv-container">
+        <h4 id="your-cv-title" data-aos="fade-up" data-aos-delay="100" data-aos-offset="400" data-aos-duration="400">
+          JŪSU CV
+        </h4>
+        <h1 id="cv-main-title" data-aos="fade-up" data-aos-delay="100" data-aos-offset="400" data-aos-duration="400">
+          Vai vēlaties palielināt savas izredzes iegūt jaunu darbu ar ekspertu palīdzību?
+        </h1>
+        <nav class="breadcrumbs">
+          <a href="index.html" id="breadcrumb-home" data-aos="fade-up" data-aos-delay="100" data-aos-offset="500" data-aos-duration="400">Mājas</a>
+          <a id="breadcrumb-your-cv" href="YourCV.html" data-aos="fade-up" data-aos-delay="100" data-aos-offset="500" data-aos-duration="400">
+            > Jūsu CV
+          </a>
+        </nav>
+        <p id="cv-description" data-aos="fade-up" data-aos-delay="100" data-aos-offset="500" data-aos-duration="400">
+          Nosūtiet mums savu CV vai motivācijas vēstuli, un mēs palīdzēsim jums to uzlabot, 
+          lai iegūtu pirmo vai nākamo darbu. Mūsu asistenti palīdzēs jums izveidot profesionālu 
+          CV un motivācijas vēstuli, nodrošinot augstu kvalitāti un ātrus rezultātus, 
+          lai palielinātu jūsu izredzes uz panākumiem!
+        </p>
+        <div class="border-cv" data-aos="fade-up" data-aos-delay="100" data-aos-offset="500" data-aos-duration="400">
+          <h3 id="cv-upload-title">Augšupielādējiet savu CV un motivācijas vēstuli šeit</h3>
+          <p id="cv-upload-info">Tikai PDF un DOCX. Maksimālais faila lielums 5 MB</p>
+          <label for="file-upload" class="custom-file-upload" id="cv-upload-btn">
+            Augšupielādēt failu
+          </label>
+          <input id="file-upload" type="file">
+        </div>
+      </div>
+      <div class="img-cv">
+        <img src="/public/images/cv-template1.png" alt="Resume Front" class="resume-img front">
+        <img src="/public/images/cv-template2.png" alt="Resume Back" class="resume-img back">
+        <img src="/public/images/cv-template12.png" alt="Resume Back" class="resume-img back">
+        <img src="/public/images/cv-template13.png" alt="Resume Back" class="resume-img back">
+        <img src="/public/images/cv-template14.png" alt="Resume Back" class="resume-img back">
+      </div>
+      <div class="ellipse">
+        <img class="ellipse1">
+        <img class="ellipse2">
+        <img class="ellipse3">
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE CAN HELP YOU SECTION -->
+  <section class="help-section">
+    <h2 id="help-title">Kā mēs varam jums palīdzēt?</h2>
+    <div class="help-container">
+      <div class="help-box" data-aos="fade-up" data-aos-delay="100">
+        <img src="/public/images/cv.png" alt="Resume Builder" class="img1">
+        <div class="help-text">
+          <h3 id="help-resume-title">CV Izveidotājs</h3>
+          <p id="help-resume-text">
+            Izveidojiet profesionālu CV ar mūsu pielāgojamiem veidnēm un ekspertu padomiem. 
+            Sāciet jau tagad!
+          </p>
+        </div>
+      </div>
+      <div class="help-box" data-aos="fade-up" data-aos-delay="200">
+        <img src="/public/images/target.png" alt="ATS-Optimized Templates" class="img2">
+        <div class="help-text">
+          <h3 id="help-ats-title">ATS Optimizētas veidnes</h3>
+          <p id="help-ats-text">
+            Palieliniet iespējas iziet cauri pirmajam atlases posmam, 
+            izmantojot mūsu speciālistu izstrādātās ATS-draudzīgās veidnes.
+          </p>
+        </div>
+      </div>
+      <div class="help-box" data-aos="fade-up" data-aos-delay="300">
+        <img src="/public/images/computer.png" alt="Resume & CV Review" class="img3">
+        <div class="help-text">
+          <h3 id="help-review-title">CV un motivācijas vēstules pārskats</h3>
+          <p id="help-review-text">
+            Augšupielādējiet savu CV ātrai pārbaudei. 
+            Mūsu sistēma analizēs un sniegs ieteikumus satura optimizēšanai.
+          </p>
+        </div>
+      </div>
+      <div class="help-box" data-aos="fade-up" data-aos-delay="400">
+        <img src="/public/images/books.png" alt="Free Career Guidance" class="img4">
+        <div class="help-text">
+          <h3 id="help-guidance-title">Bezmaksas karjeras konsultācijas</h3>
+          <p id="help-guidance-text">
+            Piekļūstiet karjeras padomiem, CV rakstīšanas ieteikumiem un darba pieteikumu stratēģijām, 
+            lai iegūtu savu sapņu darbu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AOS INITIALIZATION -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof AOS !== "undefined") {
+        AOS.init();
+      } else {
+        console.error("Ошибка: AOS не загружен.");
+      }
+    });
+  </script>
+</body>
+</html>

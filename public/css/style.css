@@ -1,0 +1,999 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scrollbar-color: #6969dd #e0e0e0;
+}
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* скрываем горизонтальный скролл */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+/*******************************************
+ * 2. HEADER / LANGUAGE BUTTON
+ *******************************************/
+.language-container {
+  position: absolute;
+  right: clamp(20px, 5vw, 120px);
+  top: clamp(10px, 2vh, 25px);
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
+  background: rgba(10, 151, 116, 0.744);
+  color: white;
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: clamp(30px, 5vh, 40px);
+  width: clamp(50px, 10vw, 70px);
+  outline: none;
+}
+.lang-btn:hover {
+  background: rgb(8, 126, 79);
+}
+.lang-btn:active {
+  transform: scale(1);
+}
+.lang-btn::before {
+  content: "🌍";
+  font-size: 16px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: clamp(10px, 2vh, 20px) clamp(10px, 5vw, 20px);
+  background: transparent;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  margin-left: clamp(10px, 5vw, 100px);
+  height: clamp(24px, 5vw, 32px);
+  vertical-align: middle;
+}
+.logo span {
+  font-size: clamp(16px, 2.5vw, 19px);
+  font-weight: bold;
+  color: #000;
+  margin-left: 4px;
+}
+
+/* NAV-BAR */
+.nav-bar {
+  display: flex;
+}
+.nav-bar nav {
+  display: flex;
+  gap: clamp(10px, 3vw, 30px);
+  margin-right: clamp(10px, 5vw, 100px);
+  padding-right: clamp(10px, 5vw, 100px);
+  margin-top: clamp(10px, 2vh, 25px);
+}
+.nav-bar a:not(.profile-btn) {
+  text-decoration: none;
+  font-size: clamp(12px, 2vw, 15px);
+  color: rgba(65, 65, 65, 1);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.nav-bar .profile {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: clamp(16px, 2.5vw, 20px);
+  transition: color 0.3s ease;
+}
+
+/* PROFILE BUTTON */
+.profile-btn {
+  position: relative;
+  top: -15px;
+  display: inline-block;
+  width: clamp(80px, 15vw, 120px);
+  height: clamp(35px, 5vh, 50px);
+  background: rgba(10, 151, 116, 0.744);
+  border-radius: 10px;
+  color: #fff;
+  font-size: clamp(14px, 2vw, 16px);
+  text-align: center;
+  line-height: clamp(35px, 5vh, 50px);
+  text-decoration: none;
+  transition: 0.2s ease, transform 0.2s ease;
+  margin-left: clamp(20px, 5vw, 50px);
+}
+.profile-btn:hover {
+  background: rgb(8, 126, 79);
+}
+
+
+/*******************************************
+ * 3. HERO SECTION
+ *******************************************/
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: clamp(6rem, 15vh, 10rem);
+  padding: 0 clamp(2rem, 5vw, 4rem);
+}
+.hero-container h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  max-width: clamp(300px, 80vw, 750px);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.hero-container p {
+  max-width: clamp(280px, 70vw, 500px);
+  font-weight: 500;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: #808080;
+  margin-bottom: 15px;
+}
+.hero-container .primary {
+  display: inline-block;
+  background: rgba(10, 151, 116, 0.744);
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 30px);
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: clamp(5px, 1vw, 5px);
+  transition: 0.3s ease-in-out, transform 0.2s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.hero-container .primary:hover {
+  background: rgb(8, 126, 79);
+  transform: scale(1.05);
+}
+.hero-container .primary:active {
+  transform: scale(0.95);
+}
+
+/*******************************************
+ * 4. CAROUSEL
+ *******************************************/
+ .carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-top: clamp(3rem, 8vh, 5rem);
+  height: auto;
+  padding: 0 clamp(2rem, 5vw, 4rem);
+}
+.carousel {
+  overflow: hidden;
+  width: 90vw;
+  height: clamp(300px, 60vh, 520px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel-track {
+  display: flex;
+  gap: clamp(20px, 5vw, 30px);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* TEMPLATE CARDS */
+.template {
+  text-align: center;
+  width: clamp(200px, 25vw, 260px);
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 2px solid rgba(0, 255, 128, 0.2);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+.template img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 255, 128, 0.236);
+  box-shadow: 0px 4px 8px rgba(0, 255, 128, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.template:hover {
+  background: rgba(0, 255, 128, 0.12);
+  border-color: rgba(0, 255, 128, 0.5);
+  box-shadow: 0px 10px 20px rgba(0, 255, 128, 0.15);
+  transform: translateY(-1px);
+}
+.template:hover img {
+  border-color: rgba(0, 255, 128, 0.5);
+  box-shadow: 0px 6px 15px rgba(0, 255, 128, 0.2);
+}
+.template a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background: rgba(10, 151, 116, 0.9);
+  color: white;
+  border-radius: 8px;
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.template a:hover {
+  background: rgb(8, 126, 79);
+  transform: scale(1.04);
+}
+
+button.prev, 
+button.next {
+  position: absolute;
+  top: 40%;               /* центрируем по вертикали на больших экранах */
+  transform: translateY(-50%);
+  border: none;
+  font-size: clamp(20px, 4vw, 30px);
+  cursor: pointer;
+  background: none;
+  padding: 10px;
+  z-index: 5;
+  color: rgb(4, 35, 4);
+}
+
+button.prev {
+  left: clamp(5px, 3vw, 40px);
+}
+button.next {
+  right: clamp(5px, 3vw, 60px);
+}
+/*******************************************
+ * 5. COURSES SECTION
+ *******************************************/
+.courses-container {
+  padding-left: clamp(2rem, 5.7vw, 10rem);
+  margin-top: clamp(2rem, 17.7vh, 12rem);
+}
+.courses-container h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  max-width: 800px;
+  text-align: left;
+  color: #313131;
+  margin-bottom: 1rem;
+}
+.courses-container p {
+  display: flex;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #646464;
+  max-width: 700px;
+}
+.courses-container .btn {
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  background: rgba(10, 151, 116, 0.744);
+  color: white;
+  padding: clamp(8px, 2vw, 12px);
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease, transform 0.2s ease;
+}
+.courses-container .btn:hover {
+  background: rgb(8, 126, 79);
+  transform: scale(1.05);
+}
+.courses-container .btn:active {
+  background: rgb(2, 60, 44);
+  transform: scale(0.9);
+}
+
+/* Курсы */
+.courses-container {
+  margin-top: clamp(2rem, 17.7vh, 12rem);
+  padding-left: clamp(2rem, 5.7vw, 10rem);
+}
+.courses-container h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  max-width: 800px;
+  text-align: left;
+  color: #313131;
+  margin-bottom: 1rem;
+}
+.courses-container p {
+  display: flex;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #646464;
+  max-width: 700px;
+}
+.courses-container .btn {
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  background: rgba(10, 151, 116, 0.744);
+  color: white;
+  padding: clamp(8px, 2vw, 12px);
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease, transform 0.2s ease;
+}
+.courses-container .btn:hover {
+  background: rgb(8, 126, 79);
+  transform: scale(1.05);
+}
+.courses-container .btn:active {
+  background: rgb(2, 60, 44);
+  transform: scale(0.9);
+}
+.price-tag {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: rgba(10, 151, 116, 0.1);
+  color: #0a9774;
+  font-size: clamp(1rem, 3vw, 1.125rem);
+  font-weight: bold;
+  border: 2px solid rgba(10, 151, 116, 0.5);
+  border-radius: 8px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(10, 151, 116, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+.price-tag:hover {
+  background: rgba(10, 151, 116, 0.2);
+  border: 2px solid rgba(10, 151, 116, 0.8);
+  box-shadow: 0 0 15px rgba(10, 151, 116, 0.4);
+  transform: scale(1.05);
+}
+
+/* Сертификат */
+.sertificate-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Используем clamp() для адаптивного отступа справа */
+  padding-right: clamp(50px, 10vw, 200px);
+  position: relative;
+}
+.sertificate {
+  position: relative;
+  /* При ширине ~1920px top ~ -320px, на узких экранах top ближе к 0 */
+  top: clamp(-320px, -15vw, -100px);
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Фоновые элементы */
+.abstract {
+  position: absolute;
+  top: clamp(-25vh, -20vh, -15vh);
+  right: clamp(2vw, 3vw, 5vw);
+  width: clamp(200px, 80vw, 1200px);
+  z-index: -1;
+  transform: translateX(10%);
+}
+.plane_bg {
+  position: absolute;
+  bottom: clamp(100px, 20vh, 200px);
+  left: clamp(50px, 15vw, 200px);
+  width: clamp(150px, 30vw, 250px);
+  filter: blur(5px);
+}
+.letter_background {
+  position: absolute;
+  bottom: clamp(15vh, 25vh, 35vh);
+  right: clamp(30vw, 60vw, 80vw);
+  width: clamp(100px, 25vw, 200px);
+  filter: blur(5px);
+}
+.ellipse-1 {
+  position: absolute;
+  width: clamp(200px, 30vw, 512px);
+  height: clamp(300px, 50vh, 655px);
+  left: clamp(40vw, 110vh, 150vw);
+  top: clamp(100px, 20vh, 300px);
+  z-index: -2;
+  background: rgba(16, 255, 195, 0.202);
+  filter: blur(80px);
+}
+.ellipse-2 {
+  position: absolute;
+  width: clamp(250px, 35vw, 575px);
+  height: clamp(350px, 50vh, 679px);
+  left: clamp(40vw, 950px, 100vw);
+  top: clamp(20vh, 40vh, 60vh);
+  z-index: -3;
+  background: rgba(86, 209, 67, 0.2);
+  filter: blur(80px);
+}
+.ellipse-3 {
+  position: absolute;
+  width: clamp(300px, 40vw, 654px);
+  height: clamp(400px, 60vh, 768px);
+  left: clamp(50vw, 1200px, 1400px);
+  top: clamp(100px, 25vh, 300px);
+  z-index: -4;
+  background: #06626b3e;
+  filter: blur(100px);
+}
+
+/* Border Section */
+.border {
+  margin-top: clamp(2rem, 10vh, 6rem);
+  width: 100%;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 3vw, 4rem);
+  background: linear-gradient(to right, #42a8ab, #273077dc);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.border h1 {
+  margin-left: clamp(1rem, 5vw, 12rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.border p {
+  margin-left: clamp(1rem, 5vw, 12rem);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.btn-assist {
+  margin-left: clamp(1rem, 5vw, 12rem);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: bold;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 25px);
+  background: #5d22cd;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn-assist:hover {
+  background: #3d0985;
+  transform: scale(1.05);
+}
+
+/* Дополнительные адаптивные настройки для курсов, сертификата и border-секции */
+
+/* Для экранов до 768px */
+@media (max-width: 768px) {
+  .courses-container {
+    padding-left: 2rem; /* уменьшаем отступы */
+    margin-top: -2rem;
+  }
+  .courses-container h1 {
+    font-size: 2rem;
+    max-width: 90%;
+  }
+  .courses-container p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  .price-tag {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  .border {
+    padding: 2rem 1.5rem;
+  }
+  .border h1, .border p, .btn-assist {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Для экранов до 480px */
+@media (max-width: 480px) {
+  .courses-container {
+    padding-left: 1rem;
+    margin-top: 8vh;
+  }
+  .courses-container h1 {
+    font-size: 1.8rem;
+    max-width: 100%;
+  }
+  .courses-container p {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .courses-container .btn {
+    font-size: 0.75rem;
+    padding: 8px;
+  }
+  .price-tag {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+  .border {
+    padding: 1.5rem 1rem;
+  }
+  .border h1 {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+  .border p {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+  .btn-assist {
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin-left: 0.5rem;
+  }
+}
+ /* 9. .grid + АНИМАЦИЯ autoBlur */
+.grid {
+  margin-top: clamp(2rem, 10vh, 6rem);
+  text-align: center;
+  font-size: clamp(3rem, 10vw, 9rem);
+}
+.autoBlur{
+  animation: autoBlurAnimation both;
+  animation-timeline: view();
+}
+
+@keyframes autoBlurAnimation{
+  0%{
+      filter: blur(20px);
+  }
+  45%, 55%{
+      filter: blur(0px);
+  }
+   100% {
+      filter: blur(20px);
+  }
+}
+
+/*******************************************
+ * 10. HELP SECTION (примерно)
+ *******************************************/
+.help-section {
+  margin-top: 100px;
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.help-section h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+.help-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+}
+.help-box {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.help-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+.help-box img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 10px;
+}
+.help-text h3 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+.help-text p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #555;
+  line-height: 1.4;
+}
+
+/*******************************************
+ * 11. YOUR CV PAGE
+ *******************************************/
+ .your-cv {
+  margin-right: clamp(1rem, 5vw, 110px);
+  margin-top: clamp(2rem, 10vh, 6rem);
+  display: flex; /* На больших экранах вы хотите выравнивать по центру */
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 5rem);
+}
+.cv-container {
+  width: 100%;
+}
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+/* ТЕКСТЫ */
+.cv-container h4 {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #06b382;
+}
+.cv-container h1 {
+  font-size: clamp(1.75rem, 3vw, 2.1875rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+.breadcrumbs {
+  margin: 10px 0;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #06b382;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.breadcrumbs a:hover {
+  color: #0ed19a5e;
+}
+.cv-container p {
+  font-size: clamp(1rem, 2vw, 1rem);
+  max-width: 700px;
+  color: #626262;
+  line-height: 1.5;
+}
+
+/* CUSTOM FILE UPLOAD + BORDER ANIMATION */
+.border-cv {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: clamp(1rem, 2vw, 1.25rem);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 5px solid transparent;
+  border-image-source: linear-gradient(0deg, #06b382ae, #ffb88f);
+  border-image-slice: 1;
+  animation: borderAnimation 4s infinite linear;
+  text-align: center;
+  max-width: 350px;
+}
+.border-cv h3 {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.border-cv p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #555;
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: clamp(0.625rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  background: #06b382;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.custom-file-upload:hover {
+  background: #04896a;
+}
+input[type="file"] {
+  display: none;
+}
+@keyframes borderAnimation {
+  0% {
+    border-image-source: linear-gradient(0deg, #06b382ae, #ffb88f);
+  }
+  25% {
+    border-image-source: linear-gradient(90deg, #06b382ae, #ffb88f);
+  }
+  50% {
+    border-image-source: linear-gradient(180deg, #06b382ae, #ffb88f);
+  }
+  75% {
+    border-image-source: linear-gradient(270deg, #06b382ae, #ffb88f);
+  }
+  100% {
+    border-image-source: linear-gradient(360deg, #06b382ae, #ffb88f);
+  }
+}
+
+.img-cv {
+  margin-left: clamp(-2rem, -5vw, -3rem);
+  position: relative;
+  width: clamp(300px, 50vw, 550px);
+  height: clamp(300px, 50vw, 550px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.5rem, 1vw, 1rem);
+  background: rgba(255, 255, 255, 0.228);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 5px solid rgba(255, 255, 255, 0.292);
+  overflow: hidden;
+}
+.img-cv img {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.5s ease-in-out;
+}
+.img-cv img.active {
+  opacity: 1;
+  z-index: 2;
+}
+.img-cv img:not(.active) {
+  opacity: 0;
+  z-index: 1;
+}
+.resume-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.resume-img.front {
+    opacity: 1;
+}
+
+@media (max-width: 1600px) {
+  .hero-container h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .hero-container p {
+    font-size: clamp(0.95rem, 2.2vw, 1.125rem);
+  }
+  .border h1 {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  }
+  .border p {
+    font-size: clamp(0.95rem, 2.2vw, 1.125rem);
+  }
+  .courses-container h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-top: clamp(0rem, 5vh, 2rem);
+  }
+  .courses-container p {
+    font-size: clamp(0.95rem, 2.2vw, 1.125rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  .sertificate {
+    top: 0;
+    margin-top: 2rem;
+    max-width: 400px;
+  }
+  .hero-container h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+  .hero-container p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  .border h1 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+  }
+  .border p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  .courses-container h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+  .courses-container p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+    button.prev, 
+    button.next {
+      top: 30%;
+    }
+  .hero-container h1 {
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    max-width: 800px;
+  }
+  .hero-container p {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    max-width: 800px;
+  }
+  .border h1 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+  .border p {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+  }
+  .courses-container h1 {
+    font-size: clamp(1.8rem, 6vw, 5rem);
+    max-width: 800px;
+  }
+  .courses-container p {
+    font-size: clamp(1rem, 3vw, 0.95rem);
+  }
+  .hero-container .primary {
+    font-size: clamp(0.5rem, 2vw, 0.95rem);
+    padding: clamp(4px, 1vw, 8px) clamp(10px, 2vw, 15px);
+  }
+  .cv-container{
+    margin-left: 30px;
+  }
+  .cv-container h1 {
+    font-size: clamp(0.7rem, 4.5vw, 2.75rem);
+    max-width: 800px;
+  }
+  .cv-container p {
+    font-size: clamp(0.6rem, 2vw, 2rem);
+  }
+  .img-cv {
+    margin-left: 20px;
+    margin: 0px auto 2rem 0px;
+    width: clamp(220px, 48vw, 700px);
+    height: clamp(190px, 48vw, 700px);
+    object-fit: cover;
+  }
+  .border-cv h3,
+  .cv-container h4,
+  .border-cv p {
+    font-size: clamp(0.7rem, 1vw, 1.7rem);
+    max-width: 200px;
+    max-height: 200px;
+  }
+  .breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+  }
+  .breadcrumbs a {
+    display: inline-block;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  .border-cv {
+    /* Уже: блок будет уже по ширине, но длиннее по высоте */
+    width: clamp(200px, 25vw, 300px);   /* узкий блок */
+    height: clamp(70px, 25vw, 500px);  /* увеличенная высота для «длинности» */
+    margin: 1rem auto;
+    padding: clamp(0.9rem, 1.5vw, 0.5rem);
+  }
+  .border-cv h3 {
+    font-size: clamp(0.8rem, 1.2vw, 0.8rem);
+    line-height: 1.1;
+  }
+  .border-cv p {
+    font-size: clamp(0.7rem, 1.2vw, 0.7rem);
+    line-height: 1.2;
+  }
+  .custom-file-upload {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    padding: clamp(0.2rem, 1vw, 0.4rem);
+  }
+  .grid {
+    margin-top: clamp(2rem, 10vh, 6rem);
+    text-align: center;
+    font-size: clamp(3rem, 10vw, 9rem);
+  }
+  .autoBlur {
+    animation: autoBlurAnimation both 5s;
+  }
+  .plane_bg,
+  .abstract,
+  .letter_background,
+  .ellipse-1,
+  .ellipse-2,
+  .ellipse-3 {
+    display: none;
+
+  }
+  .nav-bar {
+    display: none;
+  }
+  
+  .hero-container h1 {
+    font-size: 27px;
+    max-width: 350px;
+  }
+  .hero-container p {
+    font-size: 15px;
+    max-width: 300px;
+  }
+  .hero-container .primary {
+    padding-left: clamp(2rem, 5.7vw, 10rem);
+    margin-top: clamp(0rem, 2vh, 0rem);
+  }
+  .hero-container .primary {
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+    padding: clamp(9px, 1vw, 8px) clamp(10px, 2vw, 15px);
+  }
+  .border-cv {
+    margin-left: -20rem;
+  }
+}
+@media (max-width: 768px) {
+  .sertificate-container {
+    /* Убираем большие отступы, делаем обычный блок */
+    position: static;
+    display: block;
+    text-align: center;    /* чтобы картинка была по центру */
+    margin-top: 2rem;      /* отступ сверху, если нужно */
+    padding-right: 0;      /* убираем, если ранее был большой padding-right */
+  }
+
+  .sertificate {
+    position: static;      /* отменяем absolute */
+    top: auto;             /* отменяем -80px */
+    margin: 0 auto;        /* по центру */
+    max-width: 90%;        /* чтобы не вылезала за экран */
+    height: auto;          /* подстраивается по ширине */
+    display: block;        /* на всякий случай, если нужно */
+  }
+}
+
+

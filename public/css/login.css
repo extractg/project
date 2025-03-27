@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Фон страницы */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/public/images/background-profile 1.png') no-repeat center center / cover;
+}
+
+/* Контейнер формы */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;       /* Ширина для десктопов */
+    height: 650px;      /* Высота для десктопов */
+    padding: 50px;
+
+    background: rgba(255, 255, 255, 0.46);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Заголовок */
+.login-container h2 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Поля ввода */
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.login-container input::placeholder {
+    color: rgba(84, 84, 84, 0.8);
+    font-size: 14px;
+}
+
+.login-container input:focus {
+    border: 1px solid #1c7c57;
+    outline: none;
+}
+
+/* Ссылка "Forgot Password" */
+.forgot-password {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #2e6f56;
+    font-weight: 500;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Кнопка входа */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #2e6f56;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background: #265a47;
+}
+
+/* Разделитель */
+.or-divider {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px 0;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Социальные кнопки */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-login img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.social-login img:hover {
+    transform: scale(1.1);
+}
+
+/* Регистрация */
+.new-account {
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.new-account a {
+    color: #2e6f56;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.new-account a:hover {
+    text-decoration: underline;
+}
+
+/* ========================= */
+/*      Адаптивность         */
+/* ========================= */
+
+/* Средние экраны (планшеты и небольшие ноутбуки) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px; /* Чуть больше отступов вокруг формы */
+    }
+    .login-container {
+        width: 80%;
+        height: auto;        /* Уберём фиксированную высоту */
+        padding: 40px 20px;  /* Уменьшим отступы */
+    }
+    .login-container h2 {
+        font-size: 28px;     /* Уменьшим заголовок */
+    }
+    .login-container button {
+        font-size: 16px;     /* Чуть меньше кнопка */
+        padding: 10px;
+    }
+}
+
+/* Маленькие экраны (смартфоны) */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+        padding: 30px 15px;
+        border-radius: 15px; /* Можно чуть уменьшить радиус */
+    }
+    .login-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .login-container input {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .login-container button {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .or-divider {
+        font-size: 14px;
+        margin: 15px 0;
+    }
+    .social-login img {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+}
