@@ -14,6 +14,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'YourSecretKey';
 // Middleware для обработки urlencoded и JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/locales', express.static(path.join(__dirname, 'locales')));
 
 // Раздача статических файлов из папки "public" без префикса
 app.use(express.static(path.join(__dirname, 'public')));

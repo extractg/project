@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentLang = localStorage.getItem("lang") || "lv"; // По умолчанию латышский язык
 
     function changeLanguage(lang) {
-        fetch("lang.json")
+        fetch("/locales/lang.json")
             .then(response => response.json())
             .then(data => {
                 document.getElementById("nav-home").textContent = data.home[lang];
