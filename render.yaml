@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: project
+    env: node
+    branch: main
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    plan: free  # или можно не указывать, если бесплатный тариф уже выбран
