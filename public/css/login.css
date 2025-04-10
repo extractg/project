@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/public/images/background-profile 1.png') no-repeat center center / cover;
+    background: url('images/background-profile1.png') no-repeat center center / cover;
 }
 
 /* Контейнер формы */

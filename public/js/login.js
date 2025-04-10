@@ -49,3 +49,39 @@ document.addEventListener("DOMContentLoaded", function () {
     // Загружаем язык при старте страницы
     changeLanguage(currentLang);
 });
+
+// public/js/login.js
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', async function (e) {
+    e.preventDefault(); // Предотвращаем стандартное поведение формы
+
+    const email = document.getElementById('usernameInput').value;
+    const password = document.getElementById('passwordInput').value;
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.token) {
+        // Сохраняем полученный токен в localStorage
+        localStorage.setItem('authToken', data.token);
+        // Перенаправляем пользователя на защищённую страницу (например, profile.html)
+        window.location.href = '/profile.html';
+      } else {
+        alert(data.error || 'Ошибка авторизации. Проверьте введённые данные.');
+      }
+    } catch (error) {
+      console.error('Ошибка запроса:', error);
+      alert('Ошибка при попытке войти в систему');
+    }
+  });
+});

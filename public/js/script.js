@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lastScrollTop = currentScroll;
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     const coursesLink = document.querySelector('a[href="#courses"]'); // Находим ссылку
     const coursesSection = document.querySelector("#courses"); // Находим секцию
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (coursesLink && coursesSection) {
         coursesLink.addEventListener("click", function(event) {
             event.preventDefault(); // Отменяем стандартное действие ссылки
-            const offset = 120; // Регулируем насколько ниже прокручивать
+            const offset = 110; // Регулируем насколько ниже прокручивать
             const sectionPosition = coursesSection.offsetTop - offset;
 
             window.scrollTo({

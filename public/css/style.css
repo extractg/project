@@ -80,6 +80,7 @@ header {
 .logo {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 .logo img {
   margin-left: clamp(10px, 5vw, 100px);
@@ -87,7 +88,7 @@ header {
   vertical-align: middle;
 }
 .logo span {
-  font-size: clamp(16px, 2.5vw, 19px);
+  font-size: clamp(13px, 2.5vw, 15px);
   font-weight: bold;
   color: #000;
   margin-left: 4px;
@@ -156,17 +157,14 @@ header {
 .hero-container h1 {
   font-size: clamp(1.5rem, 5vw, 3rem);
   max-width: clamp(300px, 80vw, 750px);
-  letter-spacing: 0.5px;
-  line-height: 1.2;
   margin-bottom: 10px;
+  color: #333;
 }
 .hero-container p {
   max-width: clamp(280px, 70vw, 500px);
-  font-weight: 500;
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-  line-height: 1.6;
-  letter-spacing: 0.05em;
-  color: #808080;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1rem);
+  color: #666;
   margin-bottom: 15px;
 }
 .hero-container .primary {
@@ -291,44 +289,6 @@ button.next {
  * 5. COURSES SECTION
  *******************************************/
 .courses-container {
-  padding-left: clamp(2rem, 5.7vw, 10rem);
-  margin-top: clamp(2rem, 17.7vh, 12rem);
-}
-.courses-container h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: bold;
-  max-width: 800px;
-  text-align: left;
-  color: #313131;
-  margin-bottom: 1rem;
-}
-.courses-container p {
-  display: flex;
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  color: #646464;
-  max-width: 700px;
-}
-.courses-container .btn {
-  font-size: clamp(0.75rem, 2vw, 1rem);
-  background: rgba(10, 151, 116, 0.744);
-  color: white;
-  padding: clamp(8px, 2vw, 12px);
-  border-radius: 20px;
-  cursor: pointer;
-  border: none;
-  transition: 0.2s ease, transform 0.2s ease;
-}
-.courses-container .btn:hover {
-  background: rgb(8, 126, 79);
-  transform: scale(1.05);
-}
-.courses-container .btn:active {
-  background: rgb(2, 60, 44);
-  transform: scale(0.9);
-}
-
-/* Курсы */
-.courses-container {
   margin-top: clamp(2rem, 17.7vh, 12rem);
   padding-left: clamp(2rem, 5.7vw, 10rem);
 }
@@ -337,13 +297,13 @@ button.next {
   font-weight: bold;
   max-width: 800px;
   text-align: left;
-  color: #313131;
+  color: #333;
   margin-bottom: 1rem;
 }
 .courses-container p {
   display: flex;
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  color: #646464;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #666;
   max-width: 700px;
 }
 .courses-container .btn {
@@ -496,75 +456,6 @@ button.next {
 .btn-assist:hover {
   background: #3d0985;
   transform: scale(1.05);
-}
-
-/* Дополнительные адаптивные настройки для курсов, сертификата и border-секции */
-
-/* Для экранов до 768px */
-@media (max-width: 768px) {
-  .courses-container {
-    padding-left: 2rem; /* уменьшаем отступы */
-    margin-top: -2rem;
-  }
-  .courses-container h1 {
-    font-size: 2rem;
-    max-width: 90%;
-  }
-  .courses-container p {
-    font-size: 1rem;
-    max-width: 90%;
-  }
-  .price-tag {
-    font-size: 1rem;
-    padding: 8px 12px;
-  }
-  .border {
-    padding: 2rem 1.5rem;
-  }
-  .border h1, .border p, .btn-assist {
-    margin-left: 1rem;
-    font-size: 1.5rem;
-  }
-}
-
-/* Для экранов до 480px */
-@media (max-width: 480px) {
-  .courses-container {
-    padding-left: 1rem;
-    margin-top: 8vh;
-  }
-  .courses-container h1 {
-    font-size: 1.8rem;
-    max-width: 100%;
-  }
-  .courses-container p {
-    font-size: 0.9rem;
-    max-width: 100%;
-  }
-  .courses-container .btn {
-    font-size: 0.75rem;
-    padding: 8px;
-  }
-  .price-tag {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
-  .border {
-    padding: 1.5rem 1rem;
-  }
-  .border h1 {
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
-  }
-  .border p {
-    font-size: 0.9rem;
-    margin-left: 0.5rem;
-  }
-  .btn-assist {
-    font-size: 1rem;
-    padding: 8px 12px;
-    margin-left: 0.5rem;
-  }
 }
  /* 9. .grid + АНИМАЦИЯ autoBlur */
 .grid {

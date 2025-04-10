@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable CV Templates</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/templates.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="/public/css/style2.css">
+  <link rel="stylesheet" href="/public/css/editor.css">
+  <script src="/public/js/editor.js"></script>
+  <style>
+    .cv-template { display: none; margin: 2rem auto; max-width: 900px; padding: 20px; background: #fff; border: 1px solid #ccc; }
+    .template-controls { text-align: center; margin-bottom: 20px; }
+    .template-controls button { margin: 0 10px; padding: 10px 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+
+  <div id="main-container">
+
+    <!-- 🎯 Левая панель редактирования -->
+    <div id="editor-panel">
+      <h2>Redaktors</h2>
+  
+      <div class="template-controls">
+        <button onclick="downloadPDF()">Download PDF</button>
+      </div>
+  
+      <!-- 🧩 Панель: Шаблон 1 -->
+      <div id="panel-template-1" class="editor-panel" style="display: none;">
+        <h3>Redaktors: Veidne 1</h3>
+      
+        <label>Vārds un Uzvārds:
+          <input type="text" data-target="full-name-1" placeholder="Robert Smith">
+        </label>
+      
+        <label>Amats:
+          <input type="text" data-target="job-title-1" placeholder="Web Developer / Designer">
+        </label>
+      
+        <label>Profila teksts:
+          <textarea data-target="profile-text-1" placeholder="Hello! I’m Robert Smith..."></textarea>
+        </label>
+      
+        <label>Telefons:
+          <input type="text" data-target="phone-1" placeholder="+(1800) 123 4567">
+        </label>
+      
+        <label>E-pasts:
+          <input type="text" data-target="email-1" placeholder="Robertsmith@gmail.com">
+        </label>
+      
+        <label>Tīmekļa vietne:
+          <input type="text" data-target="web-1" placeholder="www.robertsmith.com">
+        </label>
+      
+        <label>Adrese:
+          <textarea data-target="address-1" placeholder="24058, Belgium, Brussels, Liutte 27, BE"></textarea>
+        </label>
+      
+        <hr>
+      
+        <h4>Valodas</h4>
+        <label>Valoda 1:
+          <input type="text" data-target="lang1-name-1" placeholder="English">
+        </label>
+        <label>Līmenis 1:
+          <input type="text" data-target="lang1-level-1" placeholder="100%">
+        </label>
+      
+        <label>Valoda 2:
+          <input type="text" data-target="lang2-name-1" placeholder="French">
+        </label>
+        <label>Līmenis 2:
+          <input type="text" data-target="lang2-level-1" placeholder="90%">
+        </label>
+      
+        <label>Valoda 3:
+          <input type="text" data-target="lang3-name-1" placeholder="Greek">
+        </label>
+        <label>Līmenis 3:
+          <input type="text" data-target="lang3-level-1" placeholder="80%">
+        </label>
+      
+        <hr>
+      
+        <h4>Logo Iniciāļi</h4>
+        <label>Iniciāļi:
+          <input type="text" data-target="initials-1" placeholder="R/S">
+        </label>
+      
+        <hr>
+      
+        <h4>Par sevi (apakšējā sadaļa)</h4>
+        <label>Adrese 2:
+          <textarea data-target="address2-1" placeholder="123 Street, 24058, Belgium, Brussels, Liutte 27, BE"></textarea>
+        </label>
+      
+        <label>Telefons 2:
+          <input type="text" data-target="phone2-1" placeholder="(1800) 123 45678">
+        </label>
+      
+        <label>E-pasts 2:
+          <input type="text" data-target="email2-1" placeholder="Robertsmith@gmail.com">
+        </label>
+      
+        <label>Tīmekļa vietne 2:
+          <input type="text" data-target="web2-1" placeholder="www.robertsmith.com">
+        </label>
+      
+        <hr>
+      
+        <h4>Pieredze</h4>
+        <label>Pieredzes nosaukums:
+          <input type="text" data-target="exp1-title-1" placeholder="Hexogan Web Development Company">
+        </label>
+        <label>Datums:
+          <input type="text" data-target="exp1-date-1" placeholder="Jan 2016 - Oct 2016">
+        </label>
+        <label>Apraksts:
+          <textarea data-target="exp1-desc-1" placeholder="Led web development team..."></textarea>
+        </label>
+      
+        <hr>
+      
+        <h4>Izglītība</h4>
+        <label>Skola:
+          <input type="text" data-target="edu1-title-1" placeholder="Web Development Academy">
+        </label>
+        <label>Datums:
+          <input type="text" data-target="edu1-date-1" placeholder="2013 - 2015">
+        </label>
+        <label>Apraksts:
+          <textarea data-target="edu1-desc-1" placeholder="Completed diploma in full-stack development."></textarea>
+        </label>
+      
+        <hr>
+      
+        <h4>Prasmes</h4>
+        <label>Prasme 1:
+          <input type="text" data-target="skill1-name-1" placeholder="WordPress">
+        </label>
+        <label>Prasme 2:
+          <input type="text" data-target="skill2-name-1" placeholder="HTML">
+        </label>
+        <label>Prasme 3:
+          <input type="text" data-target="skill3-name-1" placeholder="Photoshop">
+        </label>
+      </div>
+      
+
+
+      <div id="panel-template-2" class="editor-panel" style="display: none;">
+        <h3>Redaktors: Veidne 2</h3>
+        <label>Vārds un uzvārds:
+          <input type="text" data-target="full-name-2" placeholder="Stephen Colbert">
+        </label>
+        <label>Amats:
+          <input type="text" data-target="job-title-2" placeholder="Designer">
+        </label>
+        <label>Adrese:
+          <input type="text" data-target="address-2" placeholder="21 Street, Texas, USA">
+        </label>
+        <label>Tālrunis:
+          <input type="text" data-target="phone-2" placeholder="+324 4445678">
+        </label>
+        <label>E-pasts:
+          <input type="text" data-target="email-2" placeholder="stephen@gmail.com">
+        </label>
+        <label>Mājaslapa:
+          <input type="text" data-target="website-2" placeholder="www.stephen.com">
+        </label>
+        <label>Par mani:
+          <textarea data-target="about-2" placeholder="Lorem ipsum dolor sit, amet..."></textarea>
+        </label>
+      
+        <h4>Darba pieredze</h4>
+        <label>Nosaukums:
+          <input type="text" data-target="exp1-title-2" placeholder="Designer">
+        </label>
+        <label>Apraksts:
+          <textarea data-target="exp1-desc-2" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+        </label>
+      
+        <h4>Izglītība</h4>
+        <label>Studijas:
+          <input type="text" data-target="edu1-title-2" placeholder="Web Designing">
+        </label>
+        <label>Universitāte:
+          <input type="text" data-target="edu1-desc-2" placeholder="Texas University">
+        </label>
+      
+        <h4>Sociālie tīkli</h4>
+        <label>Facebook:
+          <input type="text" data-target="facebook-2" placeholder="Stephen@facebook">
+        </label>
+        <label>Twitter:
+          <input type="text" data-target="twitter-2" placeholder="Stephen@twitter">
+        </label>
+        <label>Youtube:
+          <input type="text" data-target="youtube-2" placeholder="Stephen@youtube">
+        </label>
+        <label>LinkedIn:
+          <input type="text" data-target="linkedin-2" placeholder="Stephen@linkedin">
+        </label>
+      
+        <h4>Prasmes</h4>
+        <label>Prasme 1:
+          <input type="text" data-target="skill1-name-2" placeholder="HTML">
+        </label>
+        <label>Prasme 2:
+          <input type="text" data-target="skill2-name-2" placeholder="CSS">
+        </label>
+        <label>Prasme 3:
+          <input type="text" data-target="skill3-name-2" placeholder="SASS">
+        </label>
+        <label>Prasme 4:
+          <input type="text" data-target="skill4-name-2" placeholder="JS">
+        </label>
+        <label>Prasme 5:
+          <input type="text" data-target="skill5-name-2" placeholder="JQUERY">
+        </label>
+      </div>
+  
+      <!-- 🧩 Панель: Шаблон 3 -->
+      <div id="panel-template-3" class="editor-panel" style="display: none;">
+        <h3>Redaktors: Veidne 3</h3>
+        <label>Pilnais vārds: <input type="text" data-target="full-name-3"></label>
+        <label>Tālrunis: <input type="text" data-target="cell-3"></label>
+        <label>Mājaslapa: <input type="text" data-target="web-3"></label>
+        <label>E-pasts: <input type="text" data-target="email-3"></label>
+        <label>Mērķis: <textarea data-target="resume4-objective"></textarea></label>
+        <label>Universitāte: <input type="text" data-target="edu-uni"></label>
+        <label>Specializācija: <input type="text" data-target="edu-major"></label>
+        <label>Apakšspecializācija: <input type="text" data-target="edu-minor"></label>
+        <label>Prasmes (birojs): <textarea data-target="skills-office"></textarea></label>
+        <label>Datora prasmes: <textarea data-target="skills-computer"></textarea></label>
+        <label>Pieredze 1: <input type="text" data-target="exp1-years"></label>
+        <label>Uzdevums 1: <input type="text" data-target="exp1-task1"></label>
+        <label>Hobiji: <textarea data-target="hobbies"></textarea></label>
+        <label>Atsauksmes: <textarea data-target="references"></textarea></label>
+      </div>
+  
+      <!-- 🧩 Панель: Шаблон 4 -->
+      <div id="panel-template-4" class="editor-panel" style="display: none;">
+        <h3>Redaktors: Veidne 4</h3>
+        <label>Vārds: <input type="text" data-target="name-value"></label>
+        <label>E-pasts: <input type="text" data-target="email-value"></label>
+        <label>Amats: <input type="text" data-target="designation-value"></label>
+        <label>Koledža / Universitāte: <input type="text" data-target="college-value"></label>
+        <label>Par mani: <textarea data-target="about-value"></textarea></label>
+        <label>Absolvēšanas gads: <input type="text" data-target="grad-year-value"></label>
+        <label>Izglītība: <textarea data-target="edu-main-value"></textarea></label>
+        <label>Tālrunis: <input type="text" data-target="telephone-value"></label>
+        <label>Fakss: <input type="text" data-target="fax-value"></textarea></label>
+        <label>Vairāk par mani: <textarea data-target="more-about-value"></textarea></label>
+        <label>Darba pieredze 1: <textarea data-target="work1-title"></textarea></label>
+        <label>Uzņēmums 1: <textarea data-target="work1-company"></textarea></label>
+        <label>Apraksts 1: <textarea data-target="work1-desc"></textarea></label>
+      </div>
+
+
+
+    <div id="panel-template-5" class="editor-panel" style="display: none;">
+      <h3>Redaktors: Veidne 5</h3>
+    
+      <label>Pilnais vārds:
+        <input type="text" data-target="full-name-5" placeholder="Jake Rocheleau" />
+      </label>
+    
+      <label>Amats:
+        <input type="text" data-target="job-title-5" placeholder="Freelance Writer & Web Developer" />
+      </label>
+    
+      <label>Pilsēta:
+        <input type="text" data-target="city-5" placeholder="Hudson" />
+      </label>
+    
+      <label>Štats:
+        <input type="text" data-target="region-5" placeholder="Massachusetts" />
+      </label>
+    
+      <label>Valsts:
+        <input type="text" data-target="country-5" placeholder="USA" />
+      </label>
+    
+      <label>E-pasts:
+        <input type="text" data-target="email-5" placeholder="jakerocheleau@gmail.com" />
+      </label>
+    
+      <label>Portfelis:
+        <input type="text" data-target="portfolio-5" placeholder="http://byjakewithlove.com/" />
+      </label>
+    
+      <label>Twitter:
+        <input type="text" data-target="twitter-5" placeholder="@jakerocheleau" />
+      </label>
+    
+      <label>Par sevi:
+        <textarea data-target="about-5" placeholder="I'm a web designer and developer..."></textarea>
+      </label>
+    
+      <label>Galvenā izglītība:
+        <input type="text" data-target="edu-5" placeholder="Hudson High School, Class of 2009" />
+      </label>
+    
+      <label>Darba pieredze 1:
+        <input type="text" data-target="exp1-5" placeholder="Freelance Web Designer/Developer ~ 2007-2009" />
+      </label>
+    
+      <label>Darba pieredze 2:
+        <input type="text" data-target="exp2-5" placeholder="Best Buy - Geek Squad In-Store Agent ~ 2008-2009" />
+      </label>
+    
+      <label>Darba pieredze 3:
+        <input type="text" data-target="exp3-5" placeholder="Freelance Writer for Hongkiat.com ~ 2011-Present" />
+      </label>
+    
+      <label>Raksts 1:
+        <input type="text" data-target="article1-5" placeholder="10 Useful Fallback Methods For CSS And JS" />
+      </label>
+    
+      <label>Raksts 2:
+        <input type="text" data-target="article2-5" placeholder="JPEG Optimization For The Web" />
+      </label>
+    </div>
+
+
+
+      <div id="panel-template-6" class="editor-panel" style="display: none;">
+        <h3>Redaktors: Veidne 6</h3>
+      
+        <!-- 🔹 Vārds un amats -->
+        <label>Vārds un uzvārds:
+          <input type="text" data-target="full-name-6" placeholder="Alex Bright" />
+        </label>
+        <label>Amats:
+          <input type="text" data-target="job-title-6" placeholder="Creative Developer" />
+        </label>
+      
+        <!-- 🔹 Kontakti -->
+        <label>E-pasts:
+          <input type="text" data-target="email-6" placeholder="alex@example.com" />
+        </label>
+        <label>Tālrunis:
+          <input type="text" data-target="phone-6" placeholder="+123 456 7890" />
+        </label>
+        <label>Adrese:
+          <textarea data-target="address-6" placeholder="123 Creative Ave, NY"></textarea>
+        </label>
+      
+        <!-- 🔹 Sociālie tīkli -->
+        <label>LinkedIn:
+          <input type="text" data-target="linkedin-6" placeholder="linkedin.com/in/alexbright" />
+        </label>
+        <label>Github:
+          <input type="text" data-target="github-6" placeholder="github.com/alexdev" />
+        </label>
+        <label>Twitter:
+          <input type="text" data-target="twitter-6" placeholder="@alexcodes" />
+        </label>
+      
+        <!-- 🔹 Prasmes -->
+        <label>Prasme 1:
+          <input type="text" data-target="skill1-6" placeholder="JavaScript" />
+        </label>
+        <label>Prasme 2:
+          <input type="text" data-target="skill2-6" placeholder="React.js" />
+        </label>
+        <label>Prasme 3:
+          <input type="text" data-target="skill3-6" placeholder="UI/UX Design" />
+        </label>
+        <label>Prasme 4:
+          <input type="text" data-target="skill4-6" placeholder="Figma" />
+        </label>
+      
+        <!-- 🔹 Par sevi -->
+        <label>Par mani:
+          <textarea data-target="about-6" placeholder="Passionate developer with a love for color and clean code."></textarea>
+        </label>
+      
+        <!-- 🔹 Darba pieredze -->
+        <h4>Pieredze</h4>
+        <label>Darba vieta 1:
+          <input type="text" data-target="exp1-title-6" placeholder="Frontend Developer at ColorLabs" />
+        </label>
+        <label>Datums 1:
+          <input type="text" data-target="exp1-date-6" placeholder="2021 - Present" />
+        </label>
+        <label>Apraksts 1:
+          <textarea data-target="exp1-desc-6" placeholder="Built vibrant interfaces..."></textarea>
+        </label>
+      
+        <label>Darba vieta 2:
+          <input type="text" data-target="exp2-title-6" placeholder="Junior Developer at BrightTech" />
+        </label>
+        <label>Datums 2:
+          <input type="text" data-target="exp2-date-6" placeholder="2019 - 2021" />
+        </label>
+        <label>Apraksts 2:
+          <textarea data-target="exp2-desc-6" placeholder="Contributed to internal tools..."></textarea>
+        </label>
+      
+        <!-- 🔹 Izglītība -->
+        <h4>Izglītība</h4>
+        <label>Izglītība:
+          <input type="text" data-target="edu1-title-6" placeholder="B.Sc. in Multimedia Technology" />
+        </label>
+        <label>Gadi:
+          <input type="text" data-target="edu1-date-6" placeholder="2015 - 2019" />
+        </label>
+        <label>Universitāte:
+          <input type="text" data-target="edu1-desc-6" placeholder="University of Digital Arts" />
+        </label>
+      
+        <!-- 🔹 Papildus -->
+        <label>Papildinformācija:
+          <textarea data-target="extra-6" placeholder="Volunteer designer for local non-profits..."></textarea>
+        </label>
+      </div>
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <div class="cv-template" id="template-1">
+    <div class="container">
+      <div class="profile">
+        <div class="profile-photo" id="profile-photo-1"></div>
+        <div class="profile-info">
+          <h2 class="heading heading-light">Profile</h2>
+          <p class="profile-text" id="profile-text-1" data-default="Hello! I’m Robert Smith. Senior Web Developer specializing in front end development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including JavaScript, SQL, and C. Strong background in project management and customer relations.">
+            Hello! I’m Robert Smith. Senior Web Developer specializing in front end development...
+          </p>
+  
+          <div class="contacts">
+            <div class="contacts-item">
+              <h3 class="contacts-title">
+                <i class="fas fa-phone-volume"></i> Phone
+              </h3>
+              <span class="contacts-text" id="phone-1" data-default="+(1800) 123 4567">+(1800) 123 4567</span>
+            </div>
+            <div class="contacts-item">
+              <h3 class="contacts-title">
+                <i class="fas fa-envelope"></i> Email
+              </h3>
+              <span class="contacts-text" id="email-1" data-default="Robertsmith@gmail.com">Robertsmith@gmail.com</span>
+            </div>
+            <div class="contacts-item">
+              <h3 class="contacts-title">
+                <i class="fas fa-globe-americas"></i> Web
+              </h3>
+              <span class="contacts-text" id="web-1" data-default="www.robertsmith.com">www.robertsmith.com</span>
+            </div>
+            <div class="contacts-item">
+              <h3 class="contacts-title">
+                <i class="fas fa-map-marker-alt"></i> Home
+              </h3>
+              <span class="contacts-text" id="address-1" data-default="24058, Belgium, Brussels, Liutte 27, BE">
+                24058, Belgium, Brussels, <br>Liutte 27, BE
+              </span>
+            </div>
+          </div>
+  
+          <h2 class="heading heading-light">Languages</h2>
+          <div class="languages">
+            <div class="language">
+              <span class="language-text" id="lang1-name-1" data-default="English">English</span>
+              <strong class="languages-per" id="lang1-level-1" data-default="100%">100%</strong>
+            </div>
+            <div class="language">
+              <span class="language-text" id="lang2-name-1" data-default="French">French</span>
+              <strong class="languages-per" id="lang2-level-1" data-default="90%">90%</strong>
+            </div>
+            <div class="language">
+              <span class="language-text" id="lang3-name-1" data-default="Greek">Greek</span>
+              <strong class="languages-per" id="lang3-level-1" data-default="80%">80%</strong>
+            </div>
+            <div class="lines">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="resume">
+        <div class="resume-wrap">
+          <div class="logo">
+            <div class="logo-lines logo-lines_left">
+              <span class="logo-line"></span>
+              <span class="logo-line"></span>
+              <span class="logo-line"></span>
+            </div>
+            <div class="logo-img" id="initials-1" data-default="R/S">R/S</div>
+            <div class="logo-lines logo-lines_right">
+              <span class="logo-line"></span>
+              <span class="logo-line"></span>
+              <span class="logo-line"></span>
+            </div>
+          </div>
+  
+          <div class="about">
+            <h1 class="name" id="full-name-1" data-default="Robert Smith">Robert Smith</h1>
+            <span class="position" id="job-title-1" data-default="Web Developer / Designer">Web Developer / Designer</span>
+            <address class="about-address" id="address2-1" data-default="123 Street, 24058, Belgium, Brussels, Liutte 27, BE">
+              123 Street, 24058, Belgium, Brussels, Liutte 27, BE
+            </address>
+            <div class="about-contacts">
+              <span class="about-contacts__link"><b>t</b>: <span id="phone2-1" data-default="(1800) 123 45678">(1800) 123 45678</span></span> |
+              <span class="about-contacts__link"><b>e</b>: <span id="email2-1" data-default="Robertsmith@gmail.com">Robertsmith@gmail.com</span></span> |
+              <span class="about-contacts__link"><b>w</b>: <span id="web2-1" data-default="www.robertsmith.com">www.robertsmith.com</span></span>
+            </div>
+          </div>
+  
+          <div class="experience">
+            <h2 class="heading heading_dark">Experience</h2>
+            <ul class="list">
+              <li class="list-item">
+                <h4 class="list-item__title" id="exp1-title-1" data-default="Hexogan Web Development Company">Hexogan Web Development Company</h4>
+                <span class="list-item__date" id="exp1-date-1" data-default="Jan 2016 - Oct 2016">Jan 2016 - Oct 2016</span>
+                <p class="list-item__text" id="exp1-desc-1" data-default="Led web development team for enterprise projects...">Led web development team for enterprise projects...</p>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="education">
+            <h2 class="heading heading_dark">Education</h2>
+            <ul class="list">
+              <li class="list-item list-item_non-border">
+                <h4 class="list-item__title" id="edu1-title-1" data-default="Web Development Academy">Web Development Academy</h4>
+                <span class="list-item__date" id="edu1-date-1" data-default="2013 - 2015">2013 - 2015</span>
+                <p class="list-item__text" id="edu1-desc-1" data-default="Completed diploma in full-stack development.">Completed diploma in full-stack development.</p>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="skills">
+            <h2 class="heading heading_dark heading_skills">Skills</h2>
+            <ul class="skills-list">
+              <li class="skills-list__item" id="skill1-name-1" data-default="WordPress">
+                WordPress
+                <div class="level level-80"></div>
+              </li>
+              <li class="skills-list__item" id="skill2-name-1" data-default="HTML">
+                HTML
+                <div class="level level-90"></div>
+              </li>
+              <li class="skills-list__item" id="skill3-name-1" data-default="Photoshop">
+                Photoshop
+                <div class="level level-50"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="cv-template" id="template-2">
+        <div class="resume">
+          <div class="resume_left">
+            <div class="resume_profile">
+              <img id="profile-img-2" src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
+            </div>
+            <div class="resume_content">
+              <div class="resume_item resume_info">
+                <div class="title">
+                  <p class="bold" id="full-name-2" data-default="Stephen Colbert">Stephen Colbert</p>
+                  <p class="regular" id="job-title-2" data-default="Designer">Designer</p>
+                </div>
+                <ul>
+                <li><div class="icon"><i class="fas fa-map-signs"></i></div><div class="data" id="address-2" data-default="21 Street, Texas, USA">21 Street, Texas<br>USA</div></li>
+                <li><div class="icon"><i class="fas fa-mobile-alt"></i></div><div class="data" id="phone-2" data-default="+324 4445678">+324 4445678</div></li>
+                <li><div class="icon"><i class="fas fa-envelope"></i></div><div class="data" id="email-2" data-default="stephen@gmail.com">stephen@gmail.com</div></li>
+                <li><div class="icon"><i class="fab fa-weebly"></i></div><div class="data" id="website-2" data-default="www.stephen.com">www.stephen.com</div></li>
+              </ul>
+            </div>
+    
+            <div class="resume_item resume_skills">
+              <div class="title"><p class="bold">Prasmes</p></div>
+              <ul>
+                <li><div class="skill_name" id="skill1-name-2" data-default="HTML">HTML</div></li>
+                <li><div class="skill_name" id="skill2-name-2" data-default="CSS">CSS</div></li>
+                <li><div class="skill_name" id="skill3-name-2" data-default="SASS">SASS</div></li>
+                <li><div class="skill_name" id="skill4-name-2" data-default="JS">JS</div></li>
+                <li><div class="skill_name" id="skill5-name-2" data-default="JQUERY">JQUERY</div></li>
+              </ul>
+            </div>
+    
+            <div class="resume_item resume_social">
+              <div class="title"><p class="bold">Sociālie tīkli</p></div>
+              <ul>
+                <li><div class="icon"><i class="fab fa-facebook-square"></i></div><div class="data"><p class="semi-bold">Facebook</p><p id="facebook-2" data-default="Stephen@facebook">Stephen@facebook</p></div></li>
+                <li><div class="icon"><i class="fab fa-twitter-square"></i></div><div class="data"><p class="semi-bold">Twitter</p><p id="twitter-2" data-default="Stephen@twitter">Stephen@twitter</p></div></li>
+                <li><div class="icon"><i class="fab fa-youtube"></i></div><div class="data"><p class="semi-bold">Youtube</p><p id="youtube-2" data-default="Stephen@youtube">Stephen@youtube</p></div></li>
+                <li><div class="icon"><i class="fab fa-linkedin"></i></div><div class="data"><p class="semi-bold">LinkedIn</p><p id="linkedin-2" data-default="Stephen@linkedin">Stephen@linkedin</p></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <div class="resume_right">
+          <div class="resume_item resume_about">
+            <div class="title"><p class="bold">Par mani</p></div>
+            <p id="about-2" data-default="Lorem ipsum dolor sit, amet...">Lorem ipsum dolor sit, amet...</p>
+          </div>
+    
+          <div class="resume_item resume_work">
+            <div class="title"><p class="bold">Darba pieredze</p></div>
+            <ul>
+              <li>
+                <div class="date">2013 - 2015</div>
+                <div class="info">
+                  <p class="semi-bold" id="exp1-title-2" data-default="Designer">Designer</p>
+                  <p id="exp1-desc-2" data-default="Lorem...">Lorem ipsum dolor sit amet...</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="resume_item resume_education">
+            <div class="title"><p class="bold">Izglītība</p></div>
+            <ul>
+              <li>
+                <div class="date">2010 - 2013</div>
+                <div class="info">
+                  <p class="semi-bold" id="edu1-title-2" data-default="Web Designing">Web Designing</p>
+                  <p id="edu1-desc-2" data-default="Texas University">Texas University</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="resume_item resume_hobby">
+            <div class="title"><p class="bold">Hobiji</p></div>
+            <ul>
+              <li><i class="fas fa-book"></i></li>
+              <li><i class="fas fa-gamepad"></i></li>
+              <li><i class="fas fa-music"></i></li>
+              <li><i class="fab fa-pagelines"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+    <div class="cv-template" id="template-3">
+      <div id="resume4-resume">
+        <img id="photo-3" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/james-moriarty.jpg" alt="James Moriarty">
+    
+        <h1 id="full-name-3" data-default="James Moriarty">James Moriarty</h1>
+    
+        <p><span class="label">Cell:</span> <span id="cell-3" data-default="555-666-7777">555-666-7777</span></p>
+        <p><span class="label">Web:</span> <span id="web-3" data-default="moriarty.com">moriarty.com</span></p>
+        <p><span class="label">Email:</span> <span id="email-3" data-default="napoleon@crime.com">napoleon@crime.com</span></p>
+    
+        <p id="resume4-objective" data-default="I am a reserved but ambitious young professional seeking a career that fits my professional skills, personality, and murderous tendencies. My good birth, excellent education and phenomenal mathematical faculty have allowed me to advance the prospects of several criminal enterprises.">
+          I am a reserved but ambitious young professional seeking a career...
+        </p>
+    
+        <dl>
+          <dt>Education</dt>
+          <dd>
+            <h2 id="edu-uni" data-default="Oxford University">Oxford University</h2>
+            <p>
+              <strong>Major:</strong> <span id="edu-major" data-default="Applied Mathematics">Applied Mathematics</span><br/>
+              <strong>Minor:</strong> <span id="edu-minor" data-default="Romance Languages">Romance Languages</span>
+            </p>
+          </dd>
+        </dl>
+    
+        <dl>
+          <dt>Skills</dt>
+          <dd>
+            <h2>Office Skills</h2>
+            <p id="skills-office" data-default="Office and records management, database administration, event organization, customer support, travel coordination">
+              Office and records management, database administration...
+            </p>
+            <h2>Computer Skills</h2>
+            <p id="skills-computer" data-default="Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows">
+              Microsoft productivity software...
+            </p>
+          </dd>
+        </dl>
+    
+        <dl>
+          <dt>Experience</dt>
+          <dd>
+            <h2>Consulting Criminal <span id="exp1-years" data-default="London 1892 – present">London 1892 – present</span></h2>
+            <ul>
+              <li id="exp1-task1" data-default="Development within the criminal underworld">Development within the criminal underworld</li>
+              <li id="exp1-task2" data-default="Conducted negotiations with several rogue governments">Conducted negotiations with several rogue governments</li>
+            </ul>
+    
+            <h2>The Coldstream Guards <span id="exp2-years" data-default="Army Coach, London 1889 – 1888">Army Coach, London 1889 – 1888</span></h2>
+            <ul>
+              <li id="exp2-task1" data-default="Recruiting, training and terrorizing young men.">Recruiting, training and terrorizing young men.</li>
+            </ul>
+    
+            <h2>Oxford University <span id="exp3-years" data-default="Professor of Mathematics 1885 – 1888">Professor of Mathematics 1885 – 1888</span></h2>
+            <ul>
+              <li id="exp3-task1" data-default="Published papers in binomials, asteroid dynamics and game theory">Published papers in binomials...</li>
+              <li id="exp3-task2" data-default="Intimidated students">Intimidated students</li>
+            </ul>
+          </dd>
+        </dl>
+    
+        <dl>
+          <dt>Hobbies</dt>
+          <dd id="hobbies" data-default="World domination, Social Manipulation, Murder Most Foul">
+            World domination, Social Manipulation, Murder Most Foul
+          </dd>
+        </dl>
+    
+        <dl>
+          <dt>References</dt>
+          <dd id="references" data-default="Available on request">
+            Available on request
+          </dd>
+        </dl>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cv-template" id="template-4">
+      <div id="profile-container">
+        <div id="profile-sidebar">
+          <div id="profile-image">
+            <img id="profile-photo" src="http://mnnit.ac.in/ss/images/shashank.jpg" alt="Profile-Image">
+          </div>
+    
+          <p id="profile-name">
+            <span id="name-value" data-default="Shashank Srivastava">Shashank Srivastava</span><br>
+            <span id="email-value" data-default="shashank12@mnnit.ac.in">shashank12@mnnit.ac.in</span>
+          </p>
+    
+          <p id="profile-designation">
+            <span id="designation-value" data-default="Assistant Professor">Assistant Professor</span><br>
+            <span id="college-value" data-default="Motilal Nehru National Institute of Technology, Allahabad, Prayagraj, India">Motilal Nehru National Institute of Technology, Allahabad, Prayagraj, India</span>
+          </p>
+    
+          <div id="profile-social-links">
+            <a id="link-facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a id="link-twitter" href="#"><i class="fab fa-twitter"></i></a>
+            <a id="link-linkedin" href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a id="link-github" href="#"><i class="fab fa-github"></i></a>
+          </div>
+    
+          <hr>
+    
+          <div id="profile-about">
+            <p id="about-value" data-default="About">About</p>
+          </div>
+    
+          <p id="profile-year-graduation">
+            Expected Year of Graduation<br>
+            <strong id="grad-year-value" data-default="March, 2014">March, 2014</strong>
+          </p>
+    
+          <p id="profile-education">
+            Education<br>
+            <strong id="edu-main-value" data-default="Doctorate, Indian Institute of Information Technology-Allahabad">Doctorate, Indian Institute of Information Technology-Allahabad</strong>
+          </p>
+    
+          <p id="profile-more-about">
+            More about me<br>
+            <span id="more-about-value" data-default="DUGC of Computer Science &amp; Engineering Department">DUGC of Computer Science &amp; Engineering Department</span>
+          </p>
+    
+          <p id="profile-telephone">
+            Telephone<br>
+            <strong id="telephone-value" data-default="0532-2271351">0532-2271351</strong>
+          </p>
+    
+          <p id="profile-fax">
+            Fax<br>
+            <strong id="fax-value" data-default="+91-532-25453441">+91-532-25453441</strong>
+          </p>
+        </div>
+    
+        <div id="profile-info-cards">
+          <div class="profile-card">
+            <p><i class="fas fa-briefcase"></i>&nbsp;&nbsp;&nbsp;Work Experience</p>
+            <ul id="work-experience-list">
+              <li>
+                <p class="profile-tags">
+                  <strong id="work1-title" data-default="Senior Software Engineer">Senior Software Engineer</strong><br>
+                  <span id="work1-company" data-default="Some Company | 2019 - Present">Some Company | 2019 - Present</span><br>
+                  <span id="work1-desc" data-default="Lorem ipsum dolor sit amet...">Lorem ipsum dolor sit amet...</span>
+                </p>
+              </li>
+              <li>
+                <p class="profile-tags">
+                  <strong id="work2-title" data-default="Frontend Developer">Frontend Developer</strong><br>
+                  <span id="work2-company" data-default="Another Company | 2015 - 2019">Another Company | 2015 - 2019</span><br>
+                  <span id="work2-desc" data-default="Mauris interdum...">Mauris interdum...</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="profile-card">
+            <p><i class="fas fa-briefcase"></i>&nbsp;&nbsp;&nbsp;Workshops</p>
+            <ul id="workshop-list">
+              <li><p id="ws1" data-default="IEEE Conf on Wireless Communication">IEEE Conf on Wireless Communication</p></li>
+              <li><p id="ws2" data-default="Microsoft Theory Day">Microsoft Theory Day</p></li>
+              <li><p id="ws3" data-default="Microsoft Summer School">Microsoft Summer School</p></li>
+              <li><p id="ws4" data-default="IEEE workshop on Cyber security">IEEE workshop on Cyber security</p></li>
+              <li><p id="ws5" data-default="Springer Author Workshop">Springer Author Workshop</p></li>
+              <li><p id="ws6" data-default="Workshop for CS Teachers">Workshop for CS Teachers</p></li>
+              <li><p id="ws7" data-default="Cryptology INDOCRYPT">Cryptology INDOCRYPT</p></li>
+            </ul>
+          </div>
+    
+          <div class="profile-card">
+            <p><i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;&nbsp;Education</p>
+            <ul id="education-list">
+              <li><p id="edu1" data-default="Secure Mobile Agent Communication, Doctorate | March, 2014">Secure Mobile Agent Communication, Doctorate | March, 2014</p></li>
+              <li><p id="edu2" data-default="Information Security, MS | 1994-1996">Information Security, MS | 1994-1996</p></li>
+              <li><p id="edu3" data-default="Computer Science & Engineering, B.Tech | 1988-1992">Computer Science & Engineering, B.Tech | 1988-1992</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cv-template" id="template-5">
+      <div class="template5-container">
+        <header class="template5-header">
+          <div class="template5-info">
+            <h1 id="full-name-5" data-default="Jake Rocheleau">Jake Rocheleau</h1>
+            <h3 id="job-title-5" data-default="Freelance Writer & Web Developer">Freelance Writer & Web Developer</h3>
+            <p id="location-5" data-default="Hudson, Massachusetts, USA">Hudson, Massachusetts, USA</p>
+            <p id="email-5" data-default="jakerocheleau@gmail.com">jakerocheleau@gmail.com</p>
+            <p>
+              <a id="portfolio-5" href="#" data-default="http://byjakewithlove.com/">My Portfolio</a> &bull;
+              <a id="twitter-5" href="#" data-default="http://twitter.com/jakerocheleau">@jakerocheleau</a>
+            </p>
+          </div>
+          <div class="template5-photo">
+            <img id="profile-img-5" src="/public/images/profilepic.png" alt="Avatar">
+          </div>
+        </header>
+    
+        <section class="template5-section">
+          <h2>My History & Profile</h2>
+          <p id="bio-5" data-default="I'm a 21 year old web designer and developer...">
+            I'm a 21 year old web designer and developer...
+          </p>
+        </section>
+    
+        <section class="template5-section">
+          <h2>Skillset</h2>
+          <div class="template5-columns">
+            <div>
+              <h4>Development</h4>
+              <ul>
+                <li id="skill1-5" data-default="HTML5/CSS3">HTML5/CSS3</li>
+                <li id="skill2-5" data-default="JavaScript & jQuery">JavaScript & jQuery</li>
+                <li id="skill3-5" data-default="PHP Backend">PHP Backend</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Software</h4>
+              <ul>
+                <li id="software1-5" data-default="Adobe Photoshop">Adobe Photoshop</li>
+                <li id="software2-5" data-default="MS Office">MS Office</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+    
+        <section class="template5-section">
+          <h2>Education</h2>
+          <p id="education-5" data-default="Hudson High School, Class of 2009">Hudson High School, Class of 2009</p>
+        </section>
+    
+        <section class="template5-section">
+          <h2>Experience</h2>
+          <p id="exp1-5" data-default="Freelance Web Designer/Developer ~ 2007-2009">Freelance Web Designer/Developer ~ 2007-2009</p>
+          <p id="exp2-5" data-default="Best Buy - Geek Squad ~ 2008-2009">Best Buy - Geek Squad ~ 2008-2009</p>
+        </section>
+    
+        <section class="template5-section">
+          <h2>Recent Articles</h2>
+          <ul>
+            <li id="article1-5" data-default="10 Useful Fallback Methods for CSS & JS">10 Useful Fallback Methods for CSS & JS</li>
+            <li id="article2-5" data-default="JPEG Optimization For The Web">JPEG Optimization For The Web</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cv-template" id="template-6">
+      <div class="template6-container">
+        <div class="template6-sidebar">
+          <div class="template6-photo">
+            <img id="photo-6" src="https://i.imgur.com/eCijVBe.png" alt="Profile Photo">
+          </div>
+          <div class="template6-name">
+            <h1 id="full-name-6" data-default="Alex Bright">Alex Bright</h1>
+            <p id="job-title-6" data-default="Creative Developer">Creative Developer</p>
+          </div>
+          <div class="template6-contact">
+            <h3>Contact</h3>
+            <p id="email-6" data-default="alex@example.com">alex@example.com</p>
+            <p id="phone-6" data-default="+123 456 7890">+123 456 7890</p>
+            <p id="address-6" data-default="123 Creative Ave, NY">123 Creative Ave, NY</p>
+          </div>
+          <div class="template6-social">
+            <h3>Social</h3>
+            <p id="linkedin-6" data-default="linkedin.com/in/alexbright">linkedin.com/in/alexbright</p>
+            <p id="github-6" data-default="github.com/alexdev">github.com/alexdev</p>
+            <p id="twitter-6" data-default="@alexcodes">@alexcodes</p>
+          </div>
+          <div class="template6-skills">
+            <h3>Skills</h3>
+            <ul>
+              <li id="skill1-6" data-default="JavaScript">JavaScript</li>
+              <li id="skill2-6" data-default="React.js">React.js</li>
+              <li id="skill3-6" data-default="UI/UX Design">UI/UX Design</li>
+              <li id="skill4-6" data-default="Figma">Figma</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="template6-main">
+          <section class="template6-section">
+            <h2>About Me</h2>
+            <p id="about-6" data-default="Passionate developer with a love for color and clean code.">Passionate developer with a love for color and clean code.</p>
+          </section>
+    
+          <section class="template6-section">
+            <h2>Work Experience</h2>
+            <div class="template6-entry">
+              <h4 id="exp1-title-6" data-default="Frontend Developer at ColorLabs">Frontend Developer at ColorLabs</h4>
+              <span id="exp1-date-6" data-default="2021 - Present">2021 - Present</span>
+              <p id="exp1-desc-6" data-default="Built vibrant interfaces and collaborated with UX designers.">Built vibrant interfaces and collaborated with UX designers.</p>
+            </div>
+            <div class="template6-entry">
+              <h4 id="exp2-title-6" data-default="Junior Developer at BrightTech">Junior Developer at BrightTech</h4>
+              <span id="exp2-date-6" data-default="2019 - 2021">2019 - 2021</span>
+              <p id="exp2-desc-6" data-default="Contributed to internal tools and animated dashboards.">Contributed to internal tools and animated dashboards.</p>
+            </div>
+          </section>
+    
+          <section class="template6-section">
+            <h2>Education</h2>
+            <div class="template6-entry">
+              <h4 id="edu1-title-6" data-default="B.Sc. in Multimedia Technology">B.Sc. in Multimedia Technology</h4>
+              <span id="edu1-date-6" data-default="2015 - 2019">2015 - 2019</span>
+              <p id="edu1-desc-6" data-default="University of Digital Arts">University of Digital Arts</p>
+            </div>
+          </section>
+    
+          <section class="template6-section">
+            <h2>Extras</h2>
+            <p id="extra-6" data-default="Volunteer designer for local non-profits and speaker at DevColor Conf 2022.">
+              Volunteer designer for local non-profits and speaker at DevColor Conf 2022.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+  <script>
+    function showTemplate(id) {
+      document.querySelectorAll('.cv-template').forEach(t => t.style.display = 'none');
+      const template = document.getElementById('template-' + id);
+      if (template) {
+        template.style.display = 'block';
+      }
+    }
+  
+    function downloadPDF() {
+      const visibleTemplate = [...document.querySelectorAll('.cv-template')].find(t => t.style.display !== 'none');
+      if (visibleTemplate) {
+        html2pdf().from(visibleTemplate).save('my-resume.pdf');
+      }
+    }
+  
+    window.showTemplate = showTemplate;
+    window.downloadPDF = downloadPDF;
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectedTemplate = localStorage.getItem("selectedTemplate");
+    document.querySelectorAll(".cv-template").forEach(template => {
+      template.style.display = "none"; // спрячем все
+    });
+    if (selectedTemplate) {
+      const current = document.getElementById(selectedTemplate);
+      if (current) current.style.display = "block";
+    }
+  });
+  
+
+
+
+
+  document.querySelectorAll('[data-target]').forEach(input => {
+  input.addEventListener('input', () => {
+    const targetId = input.dataset.target;
+    const el = document.getElementById(targetId);
+    const value = input.value.trim();
+
+    if (value) {
+      el.textContent = value;
+      localStorage.setItem(targetId, value);
+    } else {
+      const defaultText = el.dataset.default || el.getAttribute("data-default");
+      el.textContent = defaultText || "[Text]";
+      localStorage.setItem(targetId, defaultText || "[Text]");
+    }
+  });
+});
+  </script>
+  <script src="/views/editor.js"></script>
+</div>
+</body>
