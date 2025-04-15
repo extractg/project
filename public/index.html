@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script src="js/script.js" defer></script>
+  <script src="js/navbar.js" defer></script>
+  
 </head>
 <body>
   <header>
@@ -17,24 +19,28 @@
         <img src="images/logo.png" alt="logo">
         <span>CareerCraft</span>
       </div>
-      <div class="nav-bar">
-        <nav>
-          <a id="nav-home" href="index.html">SĀKUMS</a>
-          <a id="nav-courses" href="#courses">KURSI</a>
-          <a id="#pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
-          <a id="nav-cv" href="templates.html">VEIDNES</a>
-          <a id="nav-blog" href="blog.html">KONTAKTI</a>
-          <div class="profile-container">
-            <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
-            <div class="language-container">
-              <button id="language-switcher" class="lang-btn">LV</button>
-            </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a id="nav-home" href="index.html">SĀKUMS</a>
+        <a id="nav-courses" href="courses.html">KURSI</a>
+        <a id="nav-pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+        <a id="nav-cv" href="templates.html">VEIDNES</a>
+        <a id="nav-blog" href="blog.html">KONTAKTI</a>
+        <div class="profile-container">
+          <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
+          <div class="language-container">
+            <button id="language-switcher" class="lang-btn">LV</button>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+      <!-- Бургер-кнопка для мобильных -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
-  
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-container">
@@ -96,36 +102,7 @@
   </section>
   
   <!-- COURSES SECTION -->
-  <section class="Courses" id="courses">
-    <div class="courses-container" data-aos="fade-up" data-aos-duration="800" data-aos-offset="300" data-aos-once="true">
-      <h1 id="courses-title">
-        Iegādājieties kursu, lai iemācītos rakstīt savu CV un motivācijas vēstuli
-      </h1>
-      <p id="courses-description">
-        Pēc kursa pabeigšanas jūs saņemsiet sertifikātu no CareerCraft un varēsiet
-        izmantot iegūtās prasmes veiksmīgai darba pieteikšanai. Lai uzlabotu savas
-        prasmes, iegādājieties kursu jau šodien!
-      </p>
-      <button class="btn primary" id="btn-buy-course">Pirkt kursu tagad</button>
-      <div class="price-tag">
-        <span class="price" id="course-price">9.99 EUR</span>
-      </div>
-      <div class="img">
-        <div class="sertificate-container">
-          <img src="images/sertificate.png" alt="sertificate" class="sertificate">
-        </div>
-        <div class="background-elements">
-          <img src="images/abstract.png" alt="abstract" class="abstract">
-          <img src="images/plane_bg.png" alt="plane_bg" class="plane_bg">
-          <img src="images/letter_background.png" alt="letter_background" class="letter_background">
-          <div class="ellipse-1"></div>
-          <div class="ellipse-2"></div>
-          <div class="ellipse-3"></div>
-        </div>
-      </div>
-    </div> <!-- FIX: Закрыли .courses-container -->
-  </section>
-
+  
   <!-- OPTIMIZE SECTION -->
   <section class="optimize">
     <div class="border">
@@ -177,18 +154,19 @@
         </div>
       </div>
       <div class="img-cv">
+        <!-- Эллипсы должны быть ВНУТРИ img-cv и ДО изображений -->
+        <div class="ellipse">
+          <div class="ellipse1"></div>
+          <div class="ellipse2"></div>
+          <div class="ellipse3"></div>
+        </div>
+      
         <img src="images/cv-template1.png" alt="Resume Front" class="resume-img front">
         <img src="images/cv-template2.png" alt="Resume Back" class="resume-img back">
         <img src="images/cv-template12.png" alt="Resume Back" class="resume-img back">
         <img src="images/cv-template13.png" alt="Resume Back" class="resume-img back">
         <img src="images/cv-template14.png" alt="Resume Back" class="resume-img back">
       </div>
-      <div class="ellipse">
-        <img class="ellipse1">
-        <img class="ellipse2">
-        <img class="ellipse3">
-      </div>
-    </div>
   </section>
 
   <!-- HOW WE CAN HELP YOU SECTION -->

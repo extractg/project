@@ -1,0 +1,113 @@
+/* Общие стили и настройки шрифта */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+  }
+  /* Основной контейнер страницы профиля */
+  .profile-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  /* Glassmorphism контейнер */
+  .glass-container {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .glass-header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #bb86fc;
+  }
+  
+  .glass-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+  /* Секция информации профиля */
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info p {
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  /* Блок с кнопками действий */
+  .profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 18px;
+    border: none;
+    background: #3b2078;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #bb86fc;
+  }
+  
+  /* Стили для подвала */
+  footer {
+    text-align: center;
+  }
+  footer {
+    margin-top: 200px;
+    margin-right: 200px;
+    background: #09081D;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  /* Адаптивный дизайн */
+  @media (max-width: 768px) {
+    .glass-container {
+      padding: 20px;
+    }
+    .glass-header h1 {
+      font-size: 1.6rem;
+    }
+    .glass-header p {
+      font-size: 0.95rem;
+    }
+  }
+  

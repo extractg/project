@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CareerCraft - Profils</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- При необходимости можно подключить и CSS для логина, если стили совпадают -->
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/profile.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-  <!-- Подключаем скрипт для обработки профиля -->
   <script src="js/profile.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </head>
 <body>
   <header>
@@ -20,33 +20,57 @@
         <img src="images/logo.png" alt="logo">
         <span>CareerCraft</span>
       </div>
-      <div class="nav-bar">
-        <nav>
-          <a id="nav-home" href="index.html">SĀKUMS</a>
-          <a id="nav-courses" href="#courses">KURSI</a>
-          <a id="#pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
-          <a id="nav-cv" href="YourCV.html">VEIDNES</a>
-          <a id="nav-blog" href="blog.html">KONTAKTI</a>
-          <div class="profile-container">
-            <a id="nav-profile" href="profile.html" class="profile-btn">Mans Profils</a>
-            <div class="language-container">
-              <button id="language-switcher" class="lang-btn">LV</button>
-            </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a id="nav-home" href="index.html">SĀKUMS</a>
+        <a id="nav-courses" href="courses.html">KURSI</a>
+        <a id="nav-pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+        <a id="nav-cv" href="templates.html">VEIDNES</a>
+        <a id="nav-blog" href="blog.html">KONTAKTI</a>
+        <div class="profile-container">
+          <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
+          <div class="language-container">
+            <button id="language-switcher" class="lang-btn">LV</button>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+      <!-- Бургер-кнопка для мобильных -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
   
-  <div class="profile-container">
-    <h1>Mana informācija</h1>
-    <!-- Контейнер для динамического вывода данных профиля, загруженных через profile.js -->
-    <div id="profile-content"></div>
+  <div class="profile-main">
+    <div class="glass-container">
+      <!-- Заголовок профиля -->
+      <div class="glass-header">
+        <h1>Profils</h1>
+        <p>Te var apskatīt un rediģēt tavu personīgo informāciju</p>
+      </div>
+
+      <!-- Информация профиля -->
+      <div class="profile-info">
+        <p><strong>Vārds, Uzvārds:</strong> Jānis Bērziņš</p>
+        <p><strong>E-pasts:</strong> janis@example.com</p>
+        <p><strong>Tālrunis:</strong> +371 12345678</p>
+        <p><strong>Par mani:</strong> Īss apraksts par sevi, savām prasmēm un interesēm...</p>
+        <p><strong>Pabeigtie kursi:</strong> HTML, CSS, JavaScript (Beginner), ...</p>
+        <p><strong>CV statuss:</strong> Saglabāts / Atjaunināts 2025-04-13</p>
+      </div>
+
+      <!-- Кнопки действий -->
+      <div class="profile-actions">
+        <button class="btn">Rediģēt profilu</button>
+        <button class="btn">Mainīt e-pastu</button>
+        <button class="btn">Dzēst kontu</button>
+        <button class="btn" id="logoutBtn">Iziet no sistēmas</button>
+      </div>
+    </div>
   </div>
-  
   <footer>
-    <!-- Кнопка для выхода, обработка которой реализована в profile.js -->
-    <button id="logoutBtn">Iziet no sistēmas</button>
+    <p>&copy; 2025 CareerCraft. Visas tiesības aizsargātas.</p>
   </footer>
 </body>
 </html>

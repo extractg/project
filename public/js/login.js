@@ -1,87 +1,72 @@
-document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const username = document.getElementById("usernameInput").value;
-    const password = document.getElementById("passwordInput").value;
-
-    if (username === "user" && password === "1234") {
-        localStorage.setItem("isAuthenticated", "true");
-        localStorage.setItem("username", username);
-        window.location.href = "profile.html";
-    } else {
-        alert("Invalid credentials!");
-    }
-});
 document.addEventListener("DOMContentLoaded", function () {
-    const languageSwitcher = document.getElementById("language-switcher");
-    let currentLang = localStorage.getItem("lang") || "lv"; // По умолчанию латышский
+  // Языковой переключатель
+  const languageSwitcher = document.getElementById("language-switcher");
+  let currentLang = localStorage.getItem("lang") || "lv"; // По умолчанию латышский
 
-    function changeLanguage(lang) {
-        fetch("/locales/lang.json")
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("nav-home").textContent = data.home[lang];
-                document.getElementById("nav-courses").textContent = data.courses[lang];
-                document.getElementById("nav-cv").textContent = data.your_cv[lang];
-                document.getElementById("nav-blog").textContent = data.blog[lang];
-                document.getElementById("nav-profile").textContent = data.profile[lang];
-                document.getElementById("login-title").textContent = data.login_title[lang];
-                document.getElementById("email-label").textContent = data.email_label[lang];
-                document.getElementById("usernameInput").placeholder = data.email_placeholder[lang];
-                document.getElementById("password-label").textContent = data.password_label[lang];
-                document.getElementById("passwordInput").placeholder = data.password_placeholder[lang];
-                document.getElementById("forgot-password").textContent = data.forgot_password[lang];
-                document.getElementById("sign-in-btn").textContent = data.sign_in[lang];
-                document.getElementById("or-continue").textContent = data.or_continue[lang];
-                document.getElementById("register-text").textContent = data.register_text[lang];
-                document.getElementById("register-link").textContent = data.register_link[lang];
-            });
+  function changeLanguage(lang) {
+    fetch("/locales/lang.json")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("nav-home").textContent = data.home[lang];
+        document.getElementById("nav-courses").textContent = data.courses[lang];
+        document.getElementById("nav-cv").textContent = data.your_cv[lang];
+        document.getElementById("nav-blog").textContent = data.blog[lang];
+        document.getElementById("nav-profile").textContent = data.profile[lang];
+        document.getElementById("login-title").textContent = data.login_title[lang];
+        document.getElementById("email-label").textContent = data.email_label[lang];
+        document.getElementById("usernameInput").placeholder = data.email_placeholder[lang];
+        document.getElementById("password-label").textContent = data.password_label[lang];
+        document.getElementById("passwordInput").placeholder = data.password_placeholder[lang];
+        document.getElementById("forgot-password").textContent = data.forgot_password[lang];
+        document.getElementById("sign-in-btn").textContent = data.sign_in[lang];
+        document.getElementById("or-continue").textContent = data.or_continue[lang];
+        document.getElementById("register-text").textContent = data.register_text[lang];
+        document.getElementById("register-link").textContent = data.register_link[lang];
+      })
+      .catch(err => console.error("Ошибка при загрузке языка: ", err));
 
-        // Сохраняем выбранный язык в LocalStorage
-        localStorage.setItem("lang", lang);
-    }
+    // Сохраняем выбранный язык
+    localStorage.setItem("lang", lang);
+  }
 
-    // Переключение языка при клике на кнопку
+  if (languageSwitcher) {
     languageSwitcher.addEventListener("click", function () {
-        currentLang = currentLang === "lv" ? "en" : "lv";
-        changeLanguage(currentLang);
+      currentLang = currentLang === "lv" ? "en" : "lv";
+      changeLanguage(currentLang);
     });
+  }
 
-    // Загружаем язык при старте страницы
-    changeLanguage(currentLang);
-});
+  // Загружаем язык при старте страницы
+  changeLanguage(currentLang);
 
-// public/js/login.js
-document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('loginForm');
+  // Обработчик логина через fetch
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      const email = document.getElementById("usernameInput").value;
+      const password = document.getElementById("passwordInput").value;
 
-  loginForm.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Предотвращаем стандартное поведение формы
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
 
-    const email = document.getElementById('usernameInput').value;
-    const password = document.getElementById('passwordInput').value;
+        const data = await response.json();
 
-    try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.token) {
-        // Сохраняем полученный токен в localStorage
-        localStorage.setItem('authToken', data.token);
-        // Перенаправляем пользователя на защищённую страницу (например, profile.html)
-        window.location.href = '/profile.html';
-      } else {
-        alert(data.error || 'Ошибка авторизации. Проверьте введённые данные.');
+        if (response.ok && data.token) {
+          localStorage.setItem("authToken", data.token);
+          window.location.href = "profile.html";  // Открываем профильную страницу
+        } else {
+          alert(data.error || "Ошибка авторизации. Проверьте введённые данные.");
+        }
+      } catch (error) {
+        console.error("Ошибка запроса:", error);
+        alert("Ошибка при попытке войти в систему");
       }
-    } catch (error) {
-      console.error('Ошибка запроса:', error);
-      alert('Ошибка при попытке войти в систему');
-    }
-  });
+    });
+  }
 });

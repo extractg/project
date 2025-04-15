@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       // Отображаем информацию профиля
       const profileContent = document.getElementById('profile-content');
-      profileContent.innerHTML = `<h2>${data.message}</h2>`;
     } catch (error) {
       console.error('Ошибка загрузки профиля:', error);
       alert('Ошибка при получении данных профиля.');

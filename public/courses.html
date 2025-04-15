@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/navbar.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/logo.png" alt="logo">
+        <span>CareerCraft</span>
+      </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a id="nav-home" href="index.html">SĀKUMS</a>
+        <a id="nav-courses" href="courses.html">KURSI</a>
+        <a id="nav-pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+        <a id="nav-cv" href="templates.html">VEIDNES</a>
+        <a id="nav-blog" href="blog.html">KONTAKTI</a>
+        <div class="profile-container">
+          <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
+          <div class="language-container">
+            <button id="language-switcher" class="lang-btn">LV</button>
+          </div>
+        </div>
+      </nav>
+      <!-- Бургер-кнопка для мобильных -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+      
+    <!-- COURSES SECTION -->
+  <section class="Courses" id="courses">
+    <div class="courses-container" data-aos="fade-up" data-aos-duration="800" data-aos-offset="300" data-aos-once="true">
+      <h1 id="courses-title">
+        Iegādājieties kursu, lai iemācītos rakstīt savu CV un motivācijas vēstuli
+      </h1>
+      <p id="courses-description">
+        Pēc kursa pabeigšanas jūs saņemsiet sertifikātu no CareerCraft un varēsiet
+        izmantot iegūtās prasmes veiksmīgai darba pieteikšanai. Lai uzlabotu savas
+        prasmes, iegādājieties kursu jau šodien!
+      </p>
+      <button class="btn primary" id="btn-buy-course">Pirkt kursu tagad</button>
+      <div class="price-tag">
+        <span class="price" id="course-price">9.99 EUR</span>
+      </div>
+        <div class="background-elements"></div>
+          <img src="images/trytest.png" class= "abstract">
+          <img src="images/plane_bg.png" alt="plane_bg" class="plane_bg">
+          <img src="images/letter_background.png" alt="letter_background" class="letter_background">
+          <div class="ellipse-1"></div>
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+        </div>
+      </div>
+    </div> 
+  </section>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const languageSwitcher = document.getElementById("language-switcher");
+    let currentLang = localStorage.getItem("lang") || "lv"; // По умолчанию латышский
+
+    function changeLanguage(lang) {
+        fetch("/locales/lang.json")
+            .then(response => response.json())
+            .then(data => {
+                // Обновляем текст в навигации
+                document.getElementById("nav-home").textContent = data.home[lang];
+                document.getElementById("nav-courses").textContent = data.courses[lang];
+                document.getElementById("nav-cv").textContent = data.your_cv[lang];
+                document.getElementById("nav-blog").textContent = data.blog[lang];
+                document.getElementById("nav-profile").textContent = data.profile[lang];
+                // Обновляем блок с курсами
+                document.getElementById("courses-title").textContent = data.courses_title[lang];
+                document.getElementById("courses-description").textContent = data.courses_description[lang];
+                document.getElementById("btn-buy-course").textContent = data.btn_buy_course[lang];
+                document.getElementById("course-price").textContent = data.course_price[lang];
+
+                // Меняем текст кнопки переключения языка
+                languageSwitcher.textContent = lang === "lv" ? "LV" : "EN";
+            });
+
+        // Сохраняем выбранный язык в LocalStorage
+        localStorage.setItem("lang", lang);
+    }
+
+    // Переключение языка при клике на кнопку
+    languageSwitcher.addEventListener("click", function () {
+        currentLang = currentLang === "lv" ? "en" : "lv";
+        changeLanguage(currentLang);
+    });
+
+    // Загружаем язык при старте страницы
+    changeLanguage(currentLang);
+});
+
+</script>
+</body>
+</html>

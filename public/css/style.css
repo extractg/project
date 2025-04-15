@@ -6,7 +6,7 @@
 }
 
 html {
-  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-color: #161648 rgb(4, 1, 18);
 }
 body {
   width: 100%;
@@ -15,132 +15,165 @@ body {
   overflow-x: hidden; /* скрываем горизонтальный скролл */
   overflow-y: scroll;
   scroll-behavior: smooth;
-  background-color: #ffffff;
-}
+  background: #000812;
+  background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
 
-/*******************************************
- * 2. HEADER / LANGUAGE BUTTON
- *******************************************/
-.language-container {
-  position: absolute;
-  right: clamp(20px, 5vw, 120px);
-  top: clamp(10px, 2vh, 25px);
-}
-
-.lang-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
-  background: rgba(10, 151, 116, 0.744);
-  color: white;
-  font-size: clamp(12px, 2vw, 14px);
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  height: clamp(30px, 5vh, 40px);
-  width: clamp(50px, 10vw, 70px);
-  outline: none;
-}
-.lang-btn:hover {
-  background: rgb(8, 126, 79);
-}
-.lang-btn:active {
-  transform: scale(1);
-}
-.lang-btn::before {
-  content: "🌍";
-  font-size: 16px;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-  transition: top 0.3s ease-in-out;
-}
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: clamp(10px, 2vh, 20px) clamp(10px, 5vw, 20px);
-  background: transparent;
-}
-
-/* LOGO */
-.logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.logo img {
-  margin-left: clamp(10px, 5vw, 100px);
-  height: clamp(24px, 5vw, 32px);
-  vertical-align: middle;
-}
-.logo span {
-  font-size: clamp(13px, 2.5vw, 15px);
-  font-weight: bold;
-  color: #000;
-  margin-left: 4px;
-}
-
-/* NAV-BAR */
-.nav-bar {
-  display: flex;
-}
-.nav-bar nav {
-  display: flex;
-  gap: clamp(10px, 3vw, 30px);
-  margin-right: clamp(10px, 5vw, 100px);
-  padding-right: clamp(10px, 5vw, 100px);
-  margin-top: clamp(10px, 2vh, 25px);
-}
-.nav-bar a:not(.profile-btn) {
-  text-decoration: none;
-  font-size: clamp(12px, 2vw, 15px);
-  color: rgba(65, 65, 65, 1);
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-.nav-bar .profile {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  font-size: clamp(16px, 2.5vw, 20px);
-  transition: color 0.3s ease;
-}
-
-/* PROFILE BUTTON */
-.profile-btn {
-  position: relative;
-  top: -15px;
-  display: inline-block;
-  width: clamp(80px, 15vw, 120px);
-  height: clamp(35px, 5vh, 50px);
-  background: rgba(10, 151, 116, 0.744);
-  border-radius: 10px;
-  color: #fff;
-  font-size: clamp(14px, 2vw, 16px);
-  text-align: center;
-  line-height: clamp(35px, 5vh, 50px);
-  text-decoration: none;
-  transition: 0.2s ease, transform 0.2s ease;
-  margin-left: clamp(20px, 5vw, 50px);
-}
-.profile-btn:hover {
-  background: rgb(8, 126, 79);
-}
-
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: clamp(10px, 2vh, 20px) clamp(10px, 5vw, 20px);
+    background: transparent;
+  }
+  
+  /* Логотип */
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .logo img {
+    margin-left: clamp(10px, 5vw, 100px);
+    height: clamp(24px, 5vw, 36px);
+    vertical-align: middle;
+  }
+  .logo span {
+    font-size: clamp(13px, 2.5vw, 16px);
+    font-weight: bold;
+    color: rgb(229, 229, 229);
+    margin-left: 4px;
+  }
+  
+  /*******************************************
+   * 2. НАВИГАЦИЯ (DESKTOP)
+   *******************************************/
+  /* 
+     Раньше стили были .nav-bar nav { ... } 
+     Теперь переносим их на .nav-menu 
+  */
+  .nav-menu {
+    display: flex; 
+    gap: clamp(10px, 3vw, 30px);
+    
+    /* Аналог ваших отступов */
+    margin-right: clamp(10px, 5vw, 100px);
+    padding-right: clamp(10px, 5vw, 100px);
+    margin-top: clamp(10px, 2vh, 25px);
+  
+    /* Если нужно, чтобы меню располагалось справа:
+       justify-content: flex-end; 
+       Или слева:
+       justify-content: flex-start; 
+       Подберите под свою верстку.
+    */
+  }
+  
+  /* Ссылки, кроме кнопки профиля */
+  .nav-menu a:not(.profile-btn) {
+    text-decoration: none;
+    font-size: clamp(12px, 2vw, 15px);
+    color: #c9c9c9;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: pointer; /* на всякий случай, чтобы рука при наведении */
+  }
+  
+  /* Ховер-эффект */
+  .nav-menu a:not(.profile-btn):hover {
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.15);
+  }
+  
+  /* 
+     Профиль-кнопка, как у вас было 
+     (position: relative; top: -15px; ...), 
+     можете оставить без изменений.
+  */
+  .profile-btn {
+    position: relative;
+    top: -15px;
+    display: inline-block;
+    width: clamp(80px, 15vw, 120px);
+    height: clamp(35px, 5vh, 50px);
+    background-image: linear-gradient(to right, #7775a9 0%, #9c6aa6 51%, #6e6e9c 100%);
+    background-size: 200% auto;
+    border-radius: 8px;
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    text-align: center;
+    line-height: clamp(35px, 5vh, 50px);
+    text-decoration: none;
+    transition: 0.5s;
+    margin-left: clamp(20px, 5vw, 50px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+  }
+  .profile-btn:hover {
+    background-position: right center;
+    color: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(88, 25, 44, 0.4);
+  }
+  
+  /*******************************************
+   * 3. ЯЗЫКОВАЯ КНОПКА
+   *******************************************/
+  .language-container {
+    /* Если хотите, чтобы кнопка языка располагалась абсолютно в углу экрана, оставьте position: absolute;
+       иначе уберите, если мешает клику по ссылкам
+    */
+    position: absolute;
+    right: clamp(10px, 7vw, 300px);
+    top: clamp(10px, 2.4vh, 25px);
+  }
+  
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: clamp(8px, 1.5vw, 14px) clamp(14px, 3vw, 20px);
+    background-image: linear-gradient(to right, #7775a9 0%, #9c6aa6 51%, #6e6e9c 100%);
+    background-size: 200% auto;
+    color: #F2F2F2;
+    font-size: clamp(12px, 2vw, 14px);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    height: clamp(40px, 5vh, 50px);
+    width: clamp(65px, 12vw, 10px);
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .lang-btn:hover {
+    background-position: right center;
+    transform: scale(1.05);
+    box-shadow: 0 0 14px rgba(248, 205, 218, 0.4);
+  }
+  .lang-btn:active {
+    transform: scale(0.95);
+  }
+  .lang-btn::before {
+    content: "🌍";
+    font-size: 16px;
+  }
 
 /*******************************************
  * 3. HERO SECTION
@@ -158,18 +191,19 @@ header {
   font-size: clamp(1.5rem, 5vw, 3rem);
   max-width: clamp(300px, 80vw, 750px);
   margin-bottom: 10px;
-  color: #333;
+  color: #ffffff;
 }
 .hero-container p {
   max-width: clamp(280px, 70vw, 500px);
   font-weight: 400;
   font-size: clamp(1rem, 2.5vw, 1rem);
-  color: #666;
+  color: #e4e4e4;
   margin-bottom: 15px;
 }
 .hero-container .primary {
   display: inline-block;
-  background: rgba(10, 151, 116, 0.744);
+  background-image: linear-gradient(to right, #7775a9 0%, #9c6aa6 51%, #6e6e9c 100%);
+  background-size: 200% auto;
   color: white;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 30px);
@@ -177,16 +211,20 @@ header {
   text-decoration: none;
   font-weight: bold;
   margin-top: clamp(5px, 1vw, 5px);
-  transition: 0.3s ease-in-out, transform 0.2s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.5s ease-in-out, transform 0.2s ease;
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.15);
 }
+
 .hero-container .primary:hover {
-  background: rgb(8, 126, 79);
+  background-position: right center;
   transform: scale(1.05);
+  box-shadow: 0px 6px 16px rgba(248, 205, 218, 0.4);
 }
+
 .hero-container .primary:active {
   transform: scale(0.95);
 }
+
 
 /*******************************************
  * 4. CAROUSEL
@@ -196,17 +234,13 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100%;
-  margin-top: clamp(3rem, 8vh, 5rem);
-  height: auto;
-  padding: 0 clamp(2rem, 5vw, 4rem);
+  overflow-x: hidden;
+  margin-top: clamp(3rem, 8vh, 6rem); 
 }
 .carousel {
-  overflow: hidden;
-  width: 90vw;
-  height: clamp(300px, 60vh, 520px);
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  scroll-behavior: smooth;
+  padding: 20px 0;
 }
 .carousel-track {
   display: flex;
@@ -214,7 +248,6 @@ header {
   transition: transform 0.5s ease-in-out;
 }
 
-/* TEMPLATE CARDS */
 .template {
   text-align: center;
   width: clamp(200px, 25vw, 260px);
@@ -222,74 +255,95 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
   border-radius: 18px;
-  border: 2px solid rgba(0, 255, 128, 0.2);
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.15),
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease-in-out;
 }
 .template img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 2px solid rgba(0, 255, 128, 0.236);
-  box-shadow: 0px 4px 8px rgba(0, 255, 128, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.03);
   transition: all 0.3s ease-in-out;
 }
 .template:hover {
-  background: rgba(0, 255, 128, 0.12);
-  border-color: rgba(0, 255, 128, 0.5);
-  box-shadow: 0px 10px 20px rgba(0, 255, 128, 0.15);
-  transform: translateY(-1px);
+  background: linear-gradient(145deg, rgba(200, 150, 255, 0.12), rgba(255, 200, 255, 0.1));
+  border-color: rgba(200, 150, 255, 0.5);
+  box-shadow: 0px 10px 20px rgba(200, 150, 255, 0.15);
+  transform: translateY(-2px);
 }
 .template:hover img {
-  border-color: rgba(0, 255, 128, 0.5);
-  box-shadow: 0px 6px 15px rgba(0, 255, 128, 0.2);
+  border-color: rgba(200, 150, 255, 0.4);
+  box-shadow: 0px 6px 15px rgba(200, 150, 255, 0.2);
 }
 .template a {
   display: inline-block;
   margin-top: 8px;
   padding: 8px 16px;
-  background: rgba(10, 151, 116, 0.9);
+  background-image: linear-gradient(to right, #4e2c9e 0%, #8e44ad 51%, #4e2c9e 100%);
+  background-size: 200% auto;
   color: white;
   border-radius: 8px;
   font-size: clamp(12px, 2vw, 14px);
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 0 18px rgba(120, 60, 180, 0.3);
 }
 .template a:hover {
-  background: rgb(8, 126, 79);
-  transform: scale(1.04);
+  background-position: right center;
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(180, 120, 255, 0.5), 0 0 10px rgba(120, 60, 180, 0.3);
 }
 
-button.prev, 
+button.prev,
 button.next {
   position: absolute;
-  top: 40%;               /* центрируем по вертикали на больших экранах */
+  top: 50%;
   transform: translateY(-50%);
-  border: none;
-  font-size: clamp(20px, 4vw, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* меньше, тоньше */
+  font-size: clamp(22px, 4vw, 28px);
   cursor: pointer;
-  background: none;
-  padding: 10px;
+  background: linear-gradient(to right, #3a2b63, #5f2b79);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
   z-index: 5;
-  color: rgb(4, 35, 4);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 button.prev {
-  left: clamp(5px, 3vw, 40px);
+  left: clamp(10px, 2vw, 30px);
 }
+
 button.next {
-  right: clamp(5px, 3vw, 60px);
+  right: clamp(10px, 2vw, 30px);
 }
+
+button.prev:hover,
+button.next:hover {
+  background: linear-gradient(to right, #5f2b79, #3a2b63);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 5px 16px rgba(144, 100, 255, 0.3);
+}
+
+
 /*******************************************
  * 5. COURSES SECTION
  *******************************************/
-.courses-container {
-  margin-top: clamp(2rem, 17.7vh, 12rem);
+ .courses-container {
+  margin-top: clamp(5rem, 25vh, 20rem);
   padding-left: clamp(2rem, 5.7vw, 10rem);
 }
 .courses-container h1 {
@@ -297,81 +351,83 @@ button.next {
   font-weight: bold;
   max-width: 800px;
   text-align: left;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 .courses-container p {
   display: flex;
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  color: #666;
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  color: #cdcdcd;
   max-width: 700px;
 }
 .courses-container .btn {
   font-size: clamp(0.75rem, 2vw, 1rem);
-  background: rgba(10, 151, 116, 0.744);
+  background-image: linear-gradient(to right, #8c84fa 0%, #e77dfd 51%, #9595ff 100%);
+  background-size: 200% auto;
   color: white;
-  padding: clamp(8px, 2vw, 12px);
-  border-radius: 20px;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 24px);
+  border-radius: 10px;
   cursor: pointer;
   border: none;
-  transition: 0.2s ease, transform 0.2s ease;
+  font-weight: 600;
+  
+  transition: 0.5s ease-in-out, transform 0.2s ease;
 }
+
 .courses-container .btn:hover {
-  background: rgb(8, 126, 79);
+  background-position: right center;
   transform: scale(1.05);
+  
 }
+
 .courses-container .btn:active {
-  background: rgb(2, 60, 44);
-  transform: scale(0.9);
+  transform: scale(0.95);
+  
 }
+
+/* ——————— */
+
 .price-tag {
   display: inline-block;
   cursor: pointer;
-  margin-top: 15px;
-  padding: 8px 16px;
-  background: rgba(10, 151, 116, 0.1);
-  color: #0a9774;
-  font-size: clamp(1rem, 3vw, 1.125rem);
-  font-weight: bold;
-  border: 2px solid rgba(10, 151, 116, 0.5);
-  border-radius: 8px;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 12px 24px;
+  background-image: linear-gradient(to right, #8c84fa 0%, #e77dfd 51%, #9595ff 100%);
+  background-size: 200% auto;
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
   text-transform: uppercase;
-  box-shadow: 0 0 10px rgba(10, 151, 116, 0.2);
-  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(0, 12, 64, 0.15);
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .price-tag:hover {
-  background: rgba(10, 151, 116, 0.2);
-  border: 2px solid rgba(10, 151, 116, 0.8);
-  box-shadow: 0 0 15px rgba(10, 151, 116, 0.4);
-  transform: scale(1.05);
+  background-position: right center;
+  transform: scale(1.04);
+  box-shadow: 0 0 24px rgba(0, 12, 64, 0.3);
 }
 
-/* Сертификат */
-.sertificate-container {
-  display: flex;
-  justify-content: flex-end;
-  /* Используем clamp() для адаптивного отступа справа */
-  padding-right: clamp(50px, 10vw, 200px);
-  position: relative;
-}
-.sertificate {
-  position: relative;
-  /* При ширине ~1920px top ~ -320px, на узких экранах top ближе к 0 */
-  top: clamp(-320px, -15vw, -100px);
-  display: block;
-  max-width: 100%;
-  height: auto;
+.price-tag:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 14px rgba(0, 12, 64, 0.4);
 }
 
-/* Фоновые элементы */
 .abstract {
   position: absolute;
-  top: clamp(-25vh, -20vh, -15vh);
-  right: clamp(2vw, 3vw, 5vw);
-  width: clamp(200px, 80vw, 1200px);
+  top: clamp(9vh, -20vh, -15vh);
+  right: clamp(3vw, 3vw, 10vw);
+  width: clamp(500px, 80vw, 1500px);
   z-index: -1;
-  transform: translateX(10%);
+  transform: translateX(20%);
 }
+/* Фоновые элементы */
+
 .plane_bg {
   position: absolute;
   bottom: clamp(100px, 20vh, 200px);
@@ -393,7 +449,7 @@ button.next {
   left: clamp(40vw, 110vh, 150vw);
   top: clamp(100px, 20vh, 300px);
   z-index: -2;
-  background: rgba(16, 255, 195, 0.202);
+  background: rgba(16, 124, 255, 0.321);
   filter: blur(80px);
 }
 .ellipse-2 {
@@ -403,17 +459,17 @@ button.next {
   left: clamp(40vw, 950px, 100vw);
   top: clamp(20vh, 40vh, 60vh);
   z-index: -3;
-  background: rgba(86, 209, 67, 0.2);
+  background: rgba(119, 67, 209, 0.2);
   filter: blur(80px);
 }
 .ellipse-3 {
   position: absolute;
-  width: clamp(300px, 40vw, 654px);
-  height: clamp(400px, 60vh, 768px);
+  width: clamp(200px, 40vw, 554px);
+  height: clamp(400px, 60vh, 668px);
   left: clamp(50vw, 1200px, 1400px);
   top: clamp(100px, 25vh, 300px);
   z-index: -4;
-  background: #06626b3e;
+  background: #63047a77;
   filter: blur(100px);
 }
 
@@ -425,7 +481,7 @@ button.next {
   margin-left: auto;
   margin-right: auto;
   padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 3vw, 4rem);
-  background: linear-gradient(to right, #42a8ab, #273077dc);
+  background: linear-gradient(to right, #0f071d, #02072edc);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
@@ -459,6 +515,7 @@ button.next {
 }
  /* 9. .grid + АНИМАЦИЯ autoBlur */
 .grid {
+  color: white;
   margin-top: clamp(2rem, 10vh, 6rem);
   text-align: center;
   font-size: clamp(3rem, 10vw, 9rem);
@@ -483,61 +540,82 @@ button.next {
 /*******************************************
  * 10. HELP SECTION (примерно)
  *******************************************/
-.help-section {
+ .help-section {
   margin-top: 100px;
   text-align: center;
-  padding: 50px 20px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 60px 25px;
+  background: linear-gradient(145deg, #0a0a23, #1a0037);
+  border: 1px solid rgba(139, 92, 226, 0.5);
+  border-radius: 24px;
+  box-shadow:
+    0 0 60px rgba(123, 47, 247, 0.15),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
 }
+
 .help-section h2 {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 40px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
+
 .help-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
   justify-content: center;
   align-items: stretch;
   padding: 20px;
 }
+
 .help-box {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.052);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 226, 0.4);
+  border-radius: 18px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(160, 100, 255, 0.08);
+  transition: all 0.3s ease-in-out;
 }
+
 .help-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px);
+  box-shadow:
+    0 6px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(160, 100, 255, 0.3);
+  border-color: rgba(160, 100, 255, 0.5);
 }
+
 .help-box img {
-  max-width: 100px;
+  max-width: 70px;
   height: auto;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  
 }
+
 .help-text h3 {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   font-weight: 600;
-  color: #222;
+  color: #ffffff;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
+
 .help-text p {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: #555;
-  line-height: 1.4;
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.5;
 }
+
 
 /*******************************************
  * 11. YOUR CV PAGE
@@ -562,7 +640,7 @@ button.next {
 /* ТЕКСТЫ */
 .cv-container h4 {
   font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: #06b382;
+  color: #6860db;
 }
 .cv-container h1 {
   font-size: clamp(1.75rem, 3vw, 2.1875rem);
@@ -570,101 +648,164 @@ button.next {
   letter-spacing: 0.05em;
   max-width: 800px;
   margin-bottom: 20px;
+  color: white;
 }
 .breadcrumbs {
   margin: 10px 0;
 }
 .breadcrumbs a {
   text-decoration: none;
-  color: #06b382;
+  color: #6860db;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 .breadcrumbs a:hover {
-  color: #0ed19a5e;
+  color: #5a0ec5;
 }
 .cv-container p {
-  font-size: clamp(1rem, 2vw, 1rem);
+  font-size: clamp(0.9rem, 2vw, 0.8rem);
   max-width: 700px;
-  color: #626262;
+  color: #c5c5c5;
   line-height: 1.5;
 }
 
 /* CUSTOM FILE UPLOAD + BORDER ANIMATION */
 .border-cv {
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(66, 27, 105, 0.339); /* тёмный стеклянный фон */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: clamp(1rem, 2vw, 1.25rem);
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 5px solid transparent;
-  border-image-source: linear-gradient(0deg, #06b382ae, #ffb88f);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 4px solid transparent;
+  border-image-source: linear-gradient(0deg, #d19fffaa, #00c3ffaa);
   border-image-slice: 1;
   animation: borderAnimation 4s infinite linear;
   text-align: center;
   max-width: 350px;
 }
+
 .border-cv h3 {
   font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 600;
   margin-bottom: 5px;
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
 }
+
 .border-cv p {
   font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: #555;
+  color: #a7a7a7;
 }
+
 .custom-file-upload {
   display: inline-block;
   padding: clamp(0.625rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 600;
-  background: #06b382;
+  background-image: linear-gradient(to right, #7775a9 0%, #9c6aa6 51%, #6e6e9c 100%);
   color: white;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.3);
 }
+
 .custom-file-upload:hover {
-  background: #04896a;
+  box-shadow: 0 0 14px rgba(248, 205, 218, 0.4);
 }
+
 input[type="file"] {
   display: none;
 }
+
 @keyframes borderAnimation {
   0% {
-    border-image-source: linear-gradient(0deg, #06b382ae, #ffb88f);
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
   }
   25% {
-    border-image-source: linear-gradient(90deg, #06b382ae, #ffb88f);
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
   }
   50% {
-    border-image-source: linear-gradient(180deg, #06b382ae, #ffb88f);
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
   }
   75% {
-    border-image-source: linear-gradient(270deg, #06b382ae, #ffb88f);
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
   }
   100% {
-    border-image-source: linear-gradient(360deg, #06b382ae, #ffb88f);
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
   }
 }
 
 .img-cv {
-  margin-left: clamp(-2rem, -5vw, -3rem);
   position: relative;
   width: clamp(300px, 50vw, 550px);
   height: clamp(300px, 50vw, 550px);
-
+  margin-left: clamp(-2rem, -5vw, -3rem);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: clamp(0.5rem, 1vw, 1rem);
-  background: rgba(255, 255, 255, 0.228);
+  background: rgba(157, 157, 255, 0.1);
   backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border: 5px solid rgba(255, 255, 255, 0.292);
-  overflow: hidden;
+  border: 5px solid rgba(206, 183, 255, 0.2);
+  /* Главное: разрешаем эллипсам выходить за пределы */
+  overflow: visible;
+  z-index: 2;
 }
+
+/* ЭЛЛИПСЫ — СВЕТЯТСЯ ПОД КАРТИНКОЙ */
+.img-cv .ellipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ellipse1,
+.ellipse2,
+.ellipse3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Слева-сверху */
+.ellipse1 {
+  width: 450px;
+  height: 450px;
+  background: rgba(7, 114, 255, 0.5); /* сине-голубой */
+  top: -80px;
+  left: -150px;
+}
+
+/* Справа-сверху */
+.ellipse2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(216, 88, 255, 0.45); /* розово-сиреневый */
+  top: -80px;
+  right: -100px;
+}
+
+/* Снизу-слева */
+.ellipse3 {
+  width: 500px;
+  height: 500px;
+  background: rgba(212, 90, 255, 0.4); /* розовато-фиолетовый */
+  bottom: -80px;
+  left: -100px;
+}
+
+/* КАРТИНКИ */
 .img-cv img {
   position: absolute;
   width: 95%;
@@ -672,27 +813,53 @@ input[type="file"] {
   object-fit: cover;
   border-radius: 10px;
   transition: opacity 0.5s ease-in-out;
-}
-.img-cv img.active {
-  opacity: 1;
   z-index: 2;
 }
+
+.img-cv img.active {
+  opacity: 1;
+}
+
 .img-cv img:not(.active) {
   opacity: 0;
-  z-index: 1;
 }
+
 .resume-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 3;
 }
+
 .resume-img.front {
-    opacity: 1;
+  opacity: 1;
 }
+
+
+.resume-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 2; /* front */
+}
+
+.resume-img.front {
+  opacity: 1;
+}
+
+
+
+
+
+
 
 @media (max-width: 1600px) {
   .hero-container h1 {
@@ -843,9 +1010,7 @@ input[type="file"] {
     display: none;
 
   }
-  .nav-bar {
-    display: none;
-  }
+
   
   .hero-container h1 {
     font-size: 27px;
@@ -887,4 +1052,111 @@ input[type="file"] {
   }
 }
 
-
+.hamburger{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Класс, который блокирует скролл фона */
+  .no-scroll {
+    overflow: hidden;
+  }
+  
+  /* Фиксированная бургер-кнопка в правом верхнем углу */
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  .hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  /* Анимация бургер-кнопки в крестик */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+  
+  /* Полноэкранное меню-оверлей */
+  .nav-menu {
+    height: calc(var(--vh, 1vh) * 100);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    z-index: 9999;
+    background: #08000b;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* чтобы не было скролла внутри меню */
+    
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+  .nav-menu.show {
+    transform: translateX(0);
+  }
+  .nav-menu a {
+    color: #333232;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 1rem 0;
+    cursor: pointer;
+  }
+  .nav-menu a:hover {
+    color: #bbb;
+  }
+  
+  .profile-btn {
+    background: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .profile-btn:hover {
+    background: #eee;
+  }
+  
+  /* Скрываем стандартный скролл в WebKit-браузерах (опционально) */
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-menu {
+    scrollbar-width: none;
+  }
+}

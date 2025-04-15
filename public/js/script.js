@@ -75,10 +75,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
-            navbar.style.padding = "-30px 0";
-            navbar.style.background = "rgb(255, 255, 255)"; // Затемнение при скролле
+            navbar.style.padding = "-50px 0";
+            navbar.style.background = "rgba(0, 8, 18, 0.6)"; // прозрачный тёмный
+            navbar.style.backdropFilter = "blur(12px)";
+            navbar.style.webkitBackdropFilter = "blur(12px)"; // Safari
+            navbar.style.transition = "background 0.8s ease, backdrop-filter 0.8s ease";
         } else {
             navbar.style.background = "transparent"; // Прозрачный, если вверху страницы
+            navbar.style.background = "transparent";
+            navbar.style.backdropFilter = "none";
+            navbar.style.webkitBackdropFilter = "none";
+            navbar.style.borderBottom = "none";
         }
     });
 });
@@ -156,13 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("hero-title").textContent = data.hero_title[lang];
                 document.getElementById("hero-subtitle").textContent = data.hero_subtitle[lang];
                 document.getElementById("create-resume").textContent = data.create_resume[lang];
-
-                // Обновляем блок с курсами
-                document.getElementById("courses-title").textContent = data.courses_title[lang];
-                document.getElementById("courses-description").textContent = data.courses_description[lang];
-                document.getElementById("btn-buy-course").textContent = data.btn_buy_course[lang];
-                document.getElementById("course-price").textContent = data.course_price[lang];
-
+                
                 // Оптимизация контента
                 document.getElementById("optimize-title").textContent = data.optimize_title[lang];
                 document.getElementById("optimize-text").textContent = data.optimize_text[lang];
