@@ -77,27 +77,21 @@
   <script>
     (() => {
       const canvas = document.getElementById("starfield");
-      // Простейшая проверка мобильных или узких экранов
       const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-    
       if (isMobile) {
-        // На мобильных — прячем canvas и выходим, не грузя остальную логику
         canvas.style.display = "none";
         return;
       }
     
-      // --- Всё ниже выполняется только на десктопе ---
       const ctx = canvas.getContext("2d");
       let W = canvas.width  = window.innerWidth;
       let H = canvas.height = window.innerHeight;
     
-      // Подгоняем размер при изменении окна
       window.addEventListener("resize", () => {
         W = canvas.width  = window.innerWidth;
         H = canvas.height = window.innerHeight;
       });
     
-      // Координаты курсора
       let mouseX = null, mouseY = null;
       window.addEventListener("mousemove", e => {
         mouseX = e.clientX;
@@ -107,15 +101,18 @@
         mouseX = mouseY = null;
       });
     
-      // Генерируем массив звёзд
+      // Скорость движения и мерцания ↓
+      const MOVE_FACTOR  = 0.05;    // вместо 0.2
+      const BLINK_FACTOR = 0.005;   // вместо 0.02
+    
       const stars = Array.from({ length: 200 }, () => ({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        r: Math.random() * 1.5 + 0.5,
+        x:     Math.random() * W,
+        y:     Math.random() * H,
+        r:     Math.random() * 1.5 + 0.5,
         alpha: Math.random(),
-        dAlpha: Math.random() * 0.02 + 0.005,
-        dx: (Math.random() - 0.5) * 0.2,
-        dy: (Math.random() - 0.5) * 0.2
+        dAlpha: Math.random() * BLINK_FACTOR + 0.001,        // мерцание в 4× медленнее
+        dx:    (Math.random() - 0.5) * MOVE_FACTOR,          // движение в 4× медленнее
+        dy:    (Math.random() - 0.5) * MOVE_FACTOR
       }));
     
       function draw() {
@@ -127,15 +124,15 @@
           if (s.x < 0 || s.x > W) s.dx *= -1;
           if (s.y < 0 || s.y > H) s.dy *= -1;
     
-          // мерцание
+          // медленное мерцание
           s.alpha += s.dAlpha;
           if (s.alpha <= 0 || s.alpha >= 1) s.dAlpha *= -1;
     
-          // подсветка при наведении
+          // подсветка при hover (без изменения скорости)
           let alpha = s.alpha;
           if (mouseX !== null) {
-            const dx = s.x - mouseX,
-                  dy = s.y - mouseY,
+            const dx   = s.x - mouseX,
+                  dy   = s.y - mouseY,
                   dist = Math.hypot(dx, dy),
                   maxD = 100;
             if (dist < maxD) {
@@ -143,14 +140,13 @@
             }
           }
     
-          // рисуем точку
+          // рисуем звезду
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
           ctx.fillStyle = `rgba(255,255,255,${alpha})`;
           ctx.fill();
         }
     
-        // максимально плавно, ~60 FPS
         requestAnimationFrame(draw);
       }
     

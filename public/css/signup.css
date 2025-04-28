@@ -17,9 +17,6 @@ html, body {
     z-index: -3;             /* ещё на фоне fireflies и particles */
     pointer-events: none;}
 
-
-
-
   .signup-container {
     width: 450px;
     max-width: 90%;
@@ -167,17 +164,6 @@ html, body {
       pulse   8s  ease-in-out infinite;
   }
   
-  /* Перемещение «вверх/вниз» */
-  @keyframes floatY {
-    0%,100% { transform: translate(-50%, -50%) translateY(0); }
-    50%     { transform: translate(-50%, -50%) translateY(20px); }
-  }
-  
-  /* Лёгкое «дыхание» */
-  @keyframes pulse {
-    0%,100% { transform: translate(-50%, -50%) scale(1); }
-    50%     { transform: translate(-50%, -50%) scale(1.03); }
-  }
   
  .shape1 {
     width: 800px; height: 800px;
