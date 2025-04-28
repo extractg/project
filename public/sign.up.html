@@ -5,43 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CareerCraft - CV Builder Registration</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Если у вас для регистрации отдельный стиль, можно подключить другой CSS, либо использовать login.css -->
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/signup.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-  <!-- Подключаем скрипт для регистрации -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="js/signup.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </head>
 <body>
+  <canvas id="starfield"></canvas>
   <header>
     <div class="header-container">
       <div class="logo">
         <img src="images/logo.png" alt="logo">
         <span>CareerCraft</span>
       </div>
-      <div class="nav-bar">
-        <nav>
-          <a id="nav-home" href="index.html">SĀKUMS</a>
-          <a id="nav-courses" href="#courses">KURSI</a>
-          <a id="#pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
-          <a id="nav-cv" href="YourCV.html">VEIDNES</a>
-          <a id="nav-blog" href="blog.html">KONTAKTI</a>
-          <div class="profile-container">
-            <a id="nav-profile" href="profile.html" class="profile-btn">Mans Profils</a>
-            <div class="language-container">
-              <button id="language-switcher" class="lang-btn">LV</button>
-            </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a id="nav-home" href="index.html">SĀKUMS</a>
+        <a id="nav-courses" href="courses.html">KURSI</a>
+        <a id="nav-pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+        <a id="nav-cv" href="templates.html">VEIDNES</a>
+        <a id="nav-blog" href="blog.html">KONTAKTI</a>
+        <div class="profile-container">
+          <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
+          <div class="language-container">
+            <button id="language-switcher" class="lang-btn">LV</button>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
+
+  <div class="background-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+
   <div class="signup-container">
     <h2 id="signup-title">Reģistrācija</h2>
-    <!-- Форма регистрации, обработка которой производится через signup.js -->
     <form id="signupForm">
       <label for="emailInput" id="email-label">E-pasts</label>
       <input type="email" id="emailInput" name="email" placeholder="Ievadiet savu e-pastu" required>
@@ -60,5 +71,91 @@
       <a href="login.html" id="login-link">Ienāciet šeit</a>
     </div>
   </div>
+
+
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("starfield");
+      // Простейшая проверка мобильных или узких экранов
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
+      if (isMobile) {
+        // На мобильных — прячем canvas и выходим, не грузя остальную логику
+        canvas.style.display = "none";
+        return;
+      }
+    
+      // --- Всё ниже выполняется только на десктопе ---
+      const ctx = canvas.getContext("2d");
+      let W = canvas.width  = window.innerWidth;
+      let H = canvas.height = window.innerHeight;
+    
+      // Подгоняем размер при изменении окна
+      window.addEventListener("resize", () => {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      });
+    
+      // Координаты курсора
+      let mouseX = null, mouseY = null;
+      window.addEventListener("mousemove", e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      window.addEventListener("mouseout", () => {
+        mouseX = mouseY = null;
+      });
+    
+      // Генерируем массив звёзд
+      const stars = Array.from({ length: 200 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.5 + 0.5,
+        alpha: Math.random(),
+        dAlpha: Math.random() * 0.02 + 0.005,
+        dx: (Math.random() - 0.5) * 0.2,
+        dy: (Math.random() - 0.5) * 0.2
+      }));
+    
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+    
+        for (const s of stars) {
+          // движение
+          s.x += s.dx; s.y += s.dy;
+          if (s.x < 0 || s.x > W) s.dx *= -1;
+          if (s.y < 0 || s.y > H) s.dy *= -1;
+    
+          // мерцание
+          s.alpha += s.dAlpha;
+          if (s.alpha <= 0 || s.alpha >= 1) s.dAlpha *= -1;
+    
+          // подсветка при наведении
+          let alpha = s.alpha;
+          if (mouseX !== null) {
+            const dx = s.x - mouseX,
+                  dy = s.y - mouseY,
+                  dist = Math.hypot(dx, dy),
+                  maxD = 100;
+            if (dist < maxD) {
+              alpha = Math.min(1, s.alpha + (maxD - dist)/maxD * 0.5);
+            }
+          }
+    
+          // рисуем точку
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+          ctx.fill();
+        }
+    
+        // максимально плавно, ~60 FPS
+        requestAnimationFrame(draw);
+      }
+    
+      draw();
+    })();
+    </script>
 </body>
 </html>

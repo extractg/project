@@ -9,15 +9,140 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <link rel="stylesheet" href="css/style2.css">
   <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/editor.js"></script>
   <script src="js/navbar.js" defer></script>
   <style>
-    .cv-template { display: none; margin: 2rem auto; max-width: 900px; padding: 20px; background: #fff; border: 1px solid #ccc; }
-    .template-controls { text-align: center; margin-bottom: 20px; }
-    .template-controls button { margin: 0 10px; padding: 10px 20px; font-weight: bold; }
+  /* Glassmorphism для панели редактора */
+#editor-panel {
+  position: relative;
+  width: 500px;              /* подберите нужную ширину */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  margin: 20px;
+  padding: 24px;
+  background: rgba( 255, 255, 255, 0.05 ); /* почти прозрачный */
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  color: #eee;
+}
+
+/* Заголовки */
+#editor-panel h2,
+#editor-panel h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 6px;
+}
+
+/* Кнопка скачивания */
+#editor-panel .template-controls {
+  text-align: center;
+  margin-bottom: 24px;
+}
+#editor-panel .template-controls button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#editor-panel .template-controls button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Общий вид полей */
+#editor-panel label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+#editor-panel label input,
+#editor-panel label textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.9rem;
+  color: #fff;
+  resize: vertical;
+  transition: background 0.2s ease;
+}
+#editor-panel label input:focus,
+#editor-panel label textarea:focus {
+  background: rgba(255,255,255,0.2);
+  outline: none;
+}
+
+/* Разделители */
+#editor-panel hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin: 24px 0;
+}
+
+/* Мелкие заголовки внутри панелей */
+#editor-panel h4 {
+  font-size: 1rem;
+  margin: 16px 0 8px;
+  color: #fff;
+}
+
+/* Скроллбар для панели */
+#editor-panel::-webkit-scrollbar {
+  width: 6px;
+}
+#editor-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+#editor-panel::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+#editor-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3);
+}
+
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/logo.png" alt="logo">
+        <span>CareerCraft</span>
+      </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a id="nav-home" href="index.html">SĀKUMS</a>
+        <a id="nav-courses" href="courses.html">KURSI</a>
+        <a id="nav-pakalpojumi" href="#pakalpojumi">PAKALPOJUMI</a>
+        <a id="nav-cv" href="templates.html">VEIDNES</a>
+        <a id="nav-blog" href="blog.html">KONTAKTI</a>
+        <div class="profile-container">
+          <a id="nav-profile" href="login.html" class="profile-btn">Mans Profils</a>
+          <div class="language-container">
+            <button id="language-switcher" class="lang-btn">LV</button>
+          </div>
+        </div>
+      </nav>
+      <!-- Бургер-кнопка для мобильных -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
 
   <div id="main-container">

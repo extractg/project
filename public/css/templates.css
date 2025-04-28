@@ -1,9 +1,21 @@
-/* templates.css */
+html {
+  scrollbar-color: #161648 rgb(4, 1, 18);
+}
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* скрываем горизонтальный скролл */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background: #000812;
+  background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
+
+  }
 
 .templates-section {
   margin-top: 80px; /* Добавляем отступ сверху, чтобы опустить блок */
   padding: 60px 20px;
-  background-color: #ffffff; /* светлый фон */
   text-align: center;
 }
 
@@ -16,12 +28,12 @@
 .templates-section__container h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #333;
+  color: #ffffff;
 }
 
 .templates-section__container p {
   font-size: 1rem;
-  color: #666;
+  color: #d8d8d8;
   margin-bottom: 40px;
 }
 

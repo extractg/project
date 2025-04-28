@@ -12,14 +12,113 @@
     background: #eee;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    color: #222;
+    
     font-size: 14px;
     line-height: 26px;
     padding-bottom: 50px;
+    scroll-behavior: smooth;
+    background: #000812;
+    background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
   }
-
-
-
+  #main-container {
+    display: flex;
+    height: calc(100vh - var(--header-height, 60px));
+    overflow: hidden;
+     margin-top: 80px;
+  }
+  
+  /* боковая панель */
+  #editor-panel {
+    width: 300px;
+    min-width: 280px;
+    background: #1f1f35;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.7);
+    overflow-y: auto;
+  }
+  
+  /* превью-шаблон справа */
+  #preview-area {
+    flex: 1;
+    background: #0a0a17;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  /* ———————————————— */
+  /*  СТИЛИ ЭЛЕМЕНТОВ ПАНЕЛИ  */
+  /* ———————————————— */
+  #editor-panel h2 {
+    margin: 0 0 16px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #444;
+    padding-bottom: 6px;
+    letter-spacing: .05em;
+  }
+  
+  #editor-panel .template-controls {
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  #editor-panel .template-controls button {
+    background: linear-gradient(135deg,#6e6ea3,#9c6aa6);
+    color: #fff;
+    border: none;
+    padding: .6em 1.2em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  #editor-panel .template-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(156,106,166,0.6);
+  }
+  
+  .editor-panel h3 {
+    margin: 1rem 0 .5rem;
+    color: #a782ff;
+    font-size: 1.1rem;
+  }
+  
+  .editor-panel label {
+    display: block;
+    margin-bottom: .8rem;
+    font-size: .95rem;
+  }
+  
+  .editor-panel label input,
+  .editor-panel label textarea {
+    width: 100%;
+    padding: .5em;
+    margin-top: 4px;
+    background: #2c2c42;
+    color: #e1e1e8;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: .95rem;
+    transition: border-color .2s;
+  }
+  .editor-panel label input:focus,
+  .editor-panel label textarea:focus {
+    outline: none;
+    border-color: #6e6ea3;
+  }
+  
+  .editor-panel hr {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 1.2rem 0;
+  }
+  
+  .editor-panel h4 {
+    margin: 1.2rem 0 .6rem;
+    font-size: 1rem;
+    color: #ccc;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 4px;
+  }
 
 
   #template-1 .container {

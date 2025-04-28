@@ -1,0 +1,244 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background: #000812;
+    background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #starfield {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -3;             /* ещё на фоне fireflies и particles */
+    pointer-events: none;}
+
+
+
+
+  .signup-container {
+    width: 450px;
+    max-width: 90%;
+    padding: 50px 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    transition: all 0.4s ease;
+    z-index: 10;
+    animation: fadeInUp 0.7s ease forwards;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  
+  /* Анимация появления */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Заголовок */
+  .signup-container h2#signup-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  
+  /* Форма и поля */
+  .signup-container form#signupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .signup-container label {
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #C0C0FF;
+  }
+  
+  .signup-container input {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px) saturate(180%);
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  }
+  
+  .signup-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .signup-container input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 0 0 2px rgba(96, 62, 219, 0.7),
+      0 0 8px rgba(62, 65, 219, 0.6),
+      inset 0 0 1px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Кнопка регистрации */
+  .signup-container button#register-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #45429c 0%, #786aa6 51%, #4040a6 100%);
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .signup-container button#register-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(62, 65, 219, 0.4);
+  }
+  
+  /* Ссылка на вход (уже есть аккаунт) */
+  .signup-container .existing-account {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .signup-container .existing-account a {
+    color: #b596ff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .signup-container .existing-account a:hover {
+    text-decoration: underline;
+    color: #9b82e0;
+  }
+
+/* контейнер фигур */
+.background-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .signup-container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .background-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    mix-blend-mode: normal;
+    animation:
+      floatY 20s ease-in-out infinite,
+      pulse   8s  ease-in-out infinite;
+  }
+  
+  /* Перемещение «вверх/вниз» */
+  @keyframes floatY {
+    0%,100% { transform: translate(-50%, -50%) translateY(0); }
+    50%     { transform: translate(-50%, -50%) translateY(20px); }
+  }
+  
+  /* Лёгкое «дыхание» */
+  @keyframes pulse {
+    0%,100% { transform: translate(-50%, -50%) scale(1); }
+    50%     { transform: translate(-50%, -50%) scale(1.03); }
+  }
+  
+ .shape1 {
+    width: 800px; height: 800px;
+    top: 28%; left: 28%;
+    background: radial-gradient(
+      circle at center,
+      rgba(100, 80, 230, 0.27) 0%,
+      rgba(108,  93, 211, 0)    75%
+    );
+  }
+  
+  /* 2) Тёмно-синий — справа чуть выше центра */
+  .shape2 {
+    width: 700px; height: 700px;
+    top: 35%; left: 68%;
+    background: radial-gradient(
+      circle at center,
+      rgba(64, 23, 95, 0.492) 0%,
+      rgba(60, 23, 93, 0)    75%
+    );
+  }
+  
+  /* 3) Тёмно-зелёный — снизу слева */
+  .shape3 {
+    width: 750px; height: 750px;
+    top: 72%; left: 32%;
+    background: radial-gradient(
+      circle at center,
+      rgba(51, 0, 152, 0.63) 0%,
+      rgba(43, 20, 70, 0.331)    75%
+    );
+  }
+  
+  /* 4) Тёмный терракотовый — снизу справа */
+  .shape4 {
+    width: 650px; height: 650px;
+    top: 68%; left: 62%;
+    background: radial-gradient(
+      circle at center,
+      rgba(22, 131, 155, 0.31) 0%,
+      rgba(40, 120, 84, 0.152)    75%
+    );
+  }
+  #starfield {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;             /* ещё на фоне fireflies и particles */
+    pointer-events: none;
+  }
+  @media (max-width: 767px) {
+    /* На экранах уже 768px убираем сам канвас со звёздным небом */
+    #starfield {
+      display: none !important;
+    }
+  }
+  
+  /* Адаптив для мелких экранов */
+  @media (max-width: 480px) {
+    .signup-container {
+      width: 90%;
+      padding: 30px 20px;
+    }
+  }
