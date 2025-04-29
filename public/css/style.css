@@ -13,13 +13,13 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* скрываем горизонтальный скролл */
+  overflow-x: hidden; 
   overflow-y: scroll;
   scroll-behavior: smooth;
   background: #000812;
   background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
 
-  }
+ }
   header {
     position: fixed;
     top: 0;
@@ -41,7 +41,6 @@ body {
     background: transparent;
   }
   
-  /* Логотип */
   .logo {
     display: flex;
     align-items: center;
@@ -58,32 +57,16 @@ body {
     color: rgb(229, 229, 229);
     margin-left: 4px;
   }
-  
-  /*******************************************
-   * 2. НАВИГАЦИЯ (DESKTOP)
-   *******************************************/
-  /* 
-     Раньше стили были .nav-bar nav { ... } 
-     Теперь переносим их на .nav-menu 
-  */
+
   .nav-menu {
     display: flex; 
     gap: clamp(10px, 3vw, 30px);
-    
-    /* Аналог ваших отступов */
     margin-right: clamp(10px, 5vw, 100px);
     padding-right: clamp(10px, 5vw, 100px);
     margin-top: clamp(10px, 2vh, 25px);
-  
-    /* Если нужно, чтобы меню располагалось справа:
-       justify-content: flex-end; 
-       Или слева:
-       justify-content: flex-start; 
-       Подберите под свою верстку.
-    */
+
   }
   
-  /* Ссылки, кроме кнопки профиля */
   .nav-menu a:not(.profile-btn) {
     text-decoration: none;
     font-size: clamp(12px, 2vw, 15px);
@@ -91,20 +74,14 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     transition: color 0.3s ease, text-shadow 0.3s ease;
-    cursor: pointer; /* на всякий случай, чтобы рука при наведении */
+    cursor: pointer; 
   }
-  
-  /* Ховер-эффект */
+
   .nav-menu a:not(.profile-btn):hover {
     color: #ffffff;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.15);
   }
-  
-  /* 
-     Профиль-кнопка, как у вас было 
-     (position: relative; top: -15px; ...), 
-     можете оставить без изменений.
-  */
+
   .profile-btn {
     position: relative;
     top: -15px;
@@ -131,13 +108,8 @@ body {
     box-shadow: 0 0 20px rgba(88, 25, 44, 0.4);
   }
   
-  /*******************************************
-   * 3. ЯЗЫКОВАЯ КНОПКА
-   *******************************************/
+  /*** 3. ЯЗЫКОВАЯ КНОПКА****/
   .language-container {
-    /* Если хотите, чтобы кнопка языка располагалась абсолютно в углу экрана, оставьте position: absolute;
-       иначе уберите, если мешает клику по ссылкам
-    */
     position: absolute;
     right: clamp(10px, 7vw, 300px);
     top: clamp(10px, 2.4vh, 25px);
@@ -176,9 +148,7 @@ body {
     font-size: 16px;
   }
 
-/*******************************************
- * 3. HERO SECTION
- *******************************************/
+/*** 3. HERO SECTION***/
 .hero-container {
   display: flex;
   flex-direction: column;
@@ -226,10 +196,7 @@ body {
   transform: scale(0.95);
 }
 
-
-/*******************************************
- * 4. CAROUSEL
- *******************************************/
+/**** 4. CAROUSEL***********/
  .carousel-container {
   display: flex;
   align-items: center;
@@ -340,9 +307,7 @@ button.next:hover {
 }
 
 
-/*******************************************
- * 5. COURSES SECTION
- *******************************************/
+/** 5. COURSES SECTION***/
  .courses-container {
   margin-top: clamp(5rem, 25vh, 20rem);
   padding-left: clamp(2rem, 5.7vw, 10rem);
@@ -371,22 +336,17 @@ button.next:hover {
   cursor: pointer;
   border: none;
   font-weight: 600;
-  
   transition: 0.5s ease-in-out, transform 0.2s ease;
 }
 
 .courses-container .btn:hover {
   background-position: right center;
   transform: scale(1.05);
-  
 }
 
 .courses-container .btn:active {
   transform: scale(0.95);
-  
 }
-
-/* ——————— */
 
 .price-tag {
   display: inline-block;
@@ -427,7 +387,6 @@ button.next:hover {
   z-index: -1;
   transform: translateX(20%);
 }
-/* Фоновые элементы */
 
 .plane_bg {
   position: absolute;
@@ -474,7 +433,6 @@ button.next:hover {
   filter: blur(100px);
 }
 
-/* Border Section */
 .border {
   margin-top: clamp(2rem, 10vh, 6rem);
   width: 100%;
@@ -514,7 +472,7 @@ button.next:hover {
   background: #3d0985;
   transform: scale(1.05);
 }
- /* 9. .grid + АНИМАЦИЯ autoBlur */
+ 
 .grid {
   color: white;
   margin-top: clamp(2rem, 10vh, 6rem);
@@ -538,9 +496,7 @@ button.next:hover {
   }
 }
 
-/*******************************************
- * 10. HELP SECTION (примерно)
- *******************************************/
+/*10. HELP SECTION */
  .help-section {
   margin-top: 100px;
   text-align: center;
@@ -600,7 +556,6 @@ button.next:hover {
   max-width: 70px;
   height: auto;
   margin-bottom: 15px;
-  
 }
 
 .help-text h3 {
@@ -617,14 +572,11 @@ button.next:hover {
   line-height: 1.5;
 }
 
-
-/*******************************************
- * 11. YOUR CV PAGE
- *******************************************/
+/*** 11. YOUR CV PAGE*****/
  .your-cv {
   margin-right: clamp(1rem, 5vw, 110px);
   margin-top: clamp(2rem, 10vh, 6rem);
-  display: flex; /* На больших экранах вы хотите выравнивать по центру */
+  display: flex; 
   justify-content: center;
   padding: clamp(1rem, 5vw, 5rem);
 }
@@ -638,7 +590,6 @@ button.next:hover {
   gap: clamp(1rem, 3vw, 3rem);
 }
 
-/* ТЕКСТЫ */
 .cv-container h4 {
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: #6860db;
@@ -669,7 +620,6 @@ button.next:hover {
   line-height: 1.5;
 }
 
-/* CUSTOM FILE UPLOAD + BORDER ANIMATION */
 .border-cv {
   margin-top: 20px;
   background: rgba(66, 27, 105, 0.339); /* тёмный стеклянный фон */
@@ -752,12 +702,10 @@ input[type="file"] {
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border: 5px solid rgba(206, 183, 255, 0.2);
-  /* Главное: разрешаем эллипсам выходить за пределы */
   overflow: visible;
   z-index: 2;
 }
 
-/* ЭЛЛИПСЫ — СВЕТЯТСЯ ПОД КАРТИНКОЙ */
 .img-cv .ellipse {
   position: absolute;
   top: 50%;
@@ -779,7 +727,6 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* Слева-сверху */
 .ellipse1 {
   width: 450px;
   height: 450px;
@@ -788,7 +735,6 @@ input[type="file"] {
   left: -150px;
 }
 
-/* Справа-сверху */
 .ellipse2 {
   width: 400px;
   height: 400px;
@@ -797,7 +743,6 @@ input[type="file"] {
   right: -100px;
 }
 
-/* Снизу-слева */
 .ellipse3 {
   width: 500px;
   height: 500px;
@@ -806,7 +751,6 @@ input[type="file"] {
   left: -100px;
 }
 
-/* КАРТИНКИ */
 .img-cv img {
   position: absolute;
   width: 95%;
@@ -824,7 +768,6 @@ input[type="file"] {
 .img-cv img:not(.active) {
   opacity: 0;
 }
-
 .resume-img {
   position: absolute;
   width: 100%;
@@ -835,12 +778,9 @@ input[type="file"] {
   transition: opacity 1s ease-in-out;
   z-index: 3;
 }
-
 .resume-img.front {
   opacity: 1;
 }
-
-
 .resume-img {
   position: absolute;
   width: 100%;
@@ -851,14 +791,9 @@ input[type="file"] {
   transition: opacity 1s ease-in-out;
   z-index: 2; /* front */
 }
-
 .resume-img.front {
   opacity: 1;
 }
-
-
-
-
 
 
 
@@ -909,11 +844,17 @@ input[type="file"] {
     font-size: clamp(0.875rem, 2vw, 1rem);
   }
 }
+@media (max-width: 375px){
+  button.prev, 
+    button.next {
+      top: 30%;
+    }
+}
 
 @media (max-width: 768px) {
     button.prev, 
     button.next {
-      top: 30%;
+      top: 50%;
     }
   .hero-container h1 {
     font-size: clamp(1.4rem, 4.5vw, 2rem);
@@ -960,7 +901,7 @@ input[type="file"] {
   .border-cv h3,
   .cv-container h4,
   .border-cv p {
-    font-size: clamp(0.7rem, 1vw, 1.7rem);
+    font-size: clamp(0.8rem, 1vw, 1.7rem);
     max-width: 200px;
     max-height: 200px;
   }
@@ -973,10 +914,9 @@ input[type="file"] {
   }
   .breadcrumbs a {
     display: inline-block;
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
   .border-cv {
-    /* Уже: блок будет уже по ширине, но длиннее по высоте */
     width: clamp(200px, 25vw, 300px);   /* узкий блок */
     height: clamp(70px, 25vw, 500px);  /* увеличенная высота для «длинности» */
     margin: 1rem auto;
@@ -1011,7 +951,6 @@ input[type="file"] {
     display: none;
 
   }
-
   
   .hero-container h1 {
     font-size: 27px;
@@ -1035,14 +974,12 @@ input[type="file"] {
 }
 @media (max-width: 768px) {
   .sertificate-container {
-    /* Убираем большие отступы, делаем обычный блок */
     position: static;
     display: block;
     text-align: center;    /* чтобы картинка была по центру */
     margin-top: 2rem;      /* отступ сверху, если нужно */
     padding-right: 0;      /* убираем, если ранее был большой padding-right */
   }
-
   .sertificate {
     position: static;      /* отменяем absolute */
     top: auto;             /* отменяем -80px */
@@ -1063,13 +1000,9 @@ input[type="file"] {
     width: 100%;
     height: 100%;
   }
-  
-  /* Класс, который блокирует скролл фона */
   .no-scroll {
     overflow: hidden;
   }
-  
-  /* Фиксированная бургер-кнопка в правом верхнем углу */
   .hamburger {
     display: block;
     position: fixed;
@@ -1100,8 +1033,6 @@ input[type="file"] {
   .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
   }
-  
-  /* Полноэкранное меню-оверлей */
   .nav-menu {
     height: calc(var(--vh, 1vh) * 100);
     position: fixed;
@@ -1111,7 +1042,7 @@ input[type="file"] {
     bottom: 0;
   
     z-index: 9999;
-    background: #08000b;
+    background: #0b0034a4;
     
     display: flex;
     flex-direction: column;
@@ -1152,12 +1083,57 @@ input[type="file"] {
   .profile-btn:hover {
     background: #eee;
   }
-  
-  /* Скрываем стандартный скролл в WebKit-браузерах (опционально) */
   .nav-menu::-webkit-scrollbar {
     display: none;
   }
   .nav-menu {
     scrollbar-width: none;
+  }
+}
+
+
+
+
+@media screen and (min-width: 769px) and (max-width: 1919px) {
+  /* Уменьшаем общие отступы шапки */
+  .header-container {
+    padding: clamp(8px, 2vh, 16px) clamp(8px, 4vw, 40px);
+  }
+
+  /* Логотип */
+  .logo img {
+    height: clamp(24px, 4vw, 32px);
+    margin-left: clamp(8px, 3vw, 60px);
+  }
+  .logo span {
+    font-size: clamp(12px, 2vw, 14px);
+  }
+
+  /* Навигация */
+  .nav-menu {
+    margin-top: clamp(30px, 1vw , 50px);
+    gap: clamp(6px, 2vw, 12px);
+    margin-right: clamp(6px, 4vw, 40px);
+    padding-right: clamp(6px, 4vw, 40px);
+  }
+  .nav-menu a:not(.profile-btn) {
+    font-size: clamp(0.7rem, 1.3vw, 0.875rem); /* ~11px–14px */
+  }
+
+  /* Кнопка “Манс Профилс” */
+  .profile-btn {
+    font-size: clamp(0.75rem, 1.2vw, 0.875rem);   /* ~12px–14px */
+    padding: clamp(0px, 0vw, 0px) 
+             clamp(0px, 0vw, 0px);
+    margin-left: clamp(20px, 1vw, 20px);
+    line-height: 1.2;
+  }
+
+  /* Кнопка языка */
+  .lang-btn {
+    font-size: clamp(0.65rem, 1vw, 0.8rem);        /* ~10px–13px */
+    padding: clamp(2px, 0.5vw, 2px) 
+             clamp(3px, 2vw, 6px);
+    width: auto; /* чтобы не резаться до 10px */
   }
 }
