@@ -994,16 +994,13 @@ input[type="file"] {
   display: none;
 }
 @media screen and (max-width: 768px) {
- 
+  /* 1) Глобально запрещаем горизонтальный скролл */
   html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
     overscroll-behavior-x: none;
     touch-action: pan-y;
   }
 
+  /* 2) Бургер-иконка (fixed в правом верхнем углу) */
   .hamburger {
     display: block;
     position: fixed;
@@ -1036,44 +1033,38 @@ input[type="file"] {
 
   /* 3) Off-canvas меню по всей ширине/высоте экрана */
   .nav-menu {
-    height: calc(var(--vh, 1vh) 100);
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 100%;         /* прячет полностью за правый край */
     bottom: 0;
-
-    z-index: 9999;
-    background: #0b0034a4;
-
+    width: 100vw;       /* ВСЯ ширина экрана */
+    height: 100vh;      /* ВСЯ высота экрана */
+    background: rgba(11, 0, 52, 0.9);
+    z-index: 10000;     /* чуть ниже чем у .hamburger */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* чтобы не было скролла внутри меню */
-
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    overflow-y: auto;   /* если пунктов много */
   }
   .nav-menu.show {
-    transform: translateX(0);
+    left: 0;            /* показываем на весь экран */
   }
+
+  /* 4) Стили пунктов меню */
   .nav-menu a {
-    color: #333232;
     font-size: 1.25rem;
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease;
     margin: 1rem 0;
-    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10001;     /* над фоном меню */
   }
   .nav-menu a:hover {
     color: #bbb;
   }
-
 
   /* 5) Компактные кнопки внутри меню */
   .profile-btn,
@@ -1094,7 +1085,7 @@ input[type="file"] {
   .lang-btn:hover {
     background: #eee !important;
   }
-}
+} 
 
 @media screen and (min-width: 769px) and (max-width: 1919px) {
   /* чуть меньше верхнего отступа на «средних» экранах */
