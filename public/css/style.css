@@ -7,6 +7,7 @@
 
 html {
   scrollbar-color: #161648 rgb(4, 1, 18);
+  width: 100%;
 }
 
 body {
@@ -990,101 +991,111 @@ input[type="file"] {
   }
 }
 
-.hamburger{
+.hamburger {
   display: none;
 }
+body.no-scroll {
+  /* при открытом меню блокируем скролл фона */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 @media screen and (max-width: 768px) {
-  /* 1) Глобально запрещаем горизонтальный скролл */
-  html, body {
-    overscroll-behavior-x: none;
-    touch-action: pan-y;
-  }
-
-  /* 2) Бургер-иконка (fixed в правом верхнем углу) */
+  /* Показываем бургер */
   .hamburger {
     display: block;
+    position: fixed;
     top: 16px;
     right: 16px;
     width: 35px;
     height: 35px;
     background: none;
     border: none;
+    z-index: 11000;
     cursor: pointer;
-    z-index: 11000; /* выше чем у меню */
   }
   .hamburger span {
     display: block;
     width: 100%;
     height: 3px;
     margin: 6px 0;
-    background-color: #fff;
+    background: #fff;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   .hamburger.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
+    transform: rotate(45deg) translate(5px,6px);
   }
   .hamburger.open span:nth-child(2) {
     opacity: 0;
   }
   .hamburger.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
+    transform: rotate(-45deg) translate(5px,-6px);
   }
 
-  /* 3) Off-canvas меню по всей ширине/высоте экрана */
+  /* Off-canvas меню */
   .nav-menu {
     position: fixed;
     top: 0;
-    left: 100%;         /* прячет полностью за правый край */
+    right: 0;
     bottom: 0;
-    width: 100vw;       /* ВСЯ ширина экрана */
-    height: 100vh;      /* ВСЯ высота экрана */
-    background: rgba(11, 0, 52, 0.9);
-    z-index: 10000;     /* чуть ниже чем у .hamburger */
+    /* вместо width:100vw и height:100vh */
+    left: 100%;                   /* спрятано полностью вправо */
+    background: rgba(11,0,52,0.9);
+    z-index: 10000;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+
+    transform: translateX(0);     /* без смещения — left управляет позицией */
     transition: left 0.3s ease;
-    overflow-y: auto;   /* если пунктов много */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-menu.show {
-    left: 0;            /* показываем на весь экран */
+    left: 0;                      /* выдвигаем на весь экран */
   }
 
-  /* 4) Стили пунктов меню */
+  /* Стили пунктов */
   .nav-menu a {
     font-size: 1.25rem;
     color: #fff;
-    text-decoration: none;
     margin: 1rem 0;
+    text-decoration: none;
     transition: color 0.3s ease;
-    z-index: 10001;     /* над фоном меню */
+    z-index: 10001;
   }
-  .nav-menu a:hover {
-    color: #bbb;
+  .nav-menu a:hover { color: #bbb; }
+  html, body {
+    /* для Firefox */
+    scrollbar-width: none;
+    /* для IE/Edge */
+    -ms-overflow-style: none;
+  }
+  /* для WebKit-браузеров (Chrome, Safari) */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
   }
 
-  /* 5) Компактные кнопки внутри меню */
+  /* Кнопки внутри меню */
   .profile-btn,
   .lang-btn {
     display: inline-block !important;
-    width: auto !important;
-    min-width: 0 !important;
-    height: auto !important;
     margin: 0.5rem 0 !important;
     padding: 0.4rem 0.8rem !important;
     font-size: 1rem !important;
-    line-height: normal !important;
-    border-radius: 6px;
     background: #fff !important;
     color: #333 !important;
+    border-radius: 6px !important;
+    z-index: 10001;
   }
   .profile-btn:hover,
-  .lang-btn:hover {
-    background: #eee !important;
-  }
-} 
+  .lang-btn:hover { background: #eee !important; }
+}
 
 @media screen and (min-width: 769px) and (max-width: 1919px) {
   /* чуть меньше верхнего отступа на «средних» экранах */
