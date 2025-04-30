@@ -1004,7 +1004,6 @@ input[type="file"] {
   /* 2) Бургер-иконка (fixed в правом верхнем углу) */
   .hamburger {
     display: block;
-    position: fixed;
     top: 16px;
     right: 16px;
     width: 35px;
