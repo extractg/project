@@ -993,97 +993,108 @@ input[type="file"] {
 .hamburger{
   display: none;
 }
-  @media screen and (max-width: 768px) {
-    /* ==== Бургер-иконка ==== */
-    .hamburger {
-      display: block;
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      width: 35px;
-      height: 35px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 11000;
-    }
-    .hamburger span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      margin: 6px 0;
-      background: #fff;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-  
-    .nav-menu {
-      height: calc(var(--vh, 1vh) 100);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-  
-      z-index: 9999;
-      background: #0b0034a4;
-  
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-  
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* чтобы не было скролла внутри меню */
-  
-      transform: translateX(100%);
-      transition: transform 0.4s ease;
-    }
-    .nav-menu.show {
-      transform: translateX(0);
-    }
-    .nav-menu a {
-      color: #333232;
-      font-size: 1.25rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      margin: 1rem 0;
-      cursor: pointer;
-    }
-    .nav-menu a:hover {
-      color: #bbb;
-    }
-    .no-scroll {
-      overflow: hidden;
-    }
-  
-    /* Кнопки внутри меню */
-    .profile-btn,
-    .lang-btn {
-      display: inline-block !important;
-      margin: 0.5rem 0 !important;
-      padding: 0.4rem 0.8rem !important;
-      font-size: 1rem !important;
-      line-height: normal !important;
-      background: #fff !important;
-      color: #333 !important;
-      border-radius: 6px !important;
-    }
-    .profile-btn:hover,
-    .lang-btn:hover {
-      background: #eee !important;
-    }
+@media screen and (max-width: 768px) {
+ 
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
   }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 11000; /* выше чем у меню */
+  }
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 6px 0;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+
+  /* 3) Off-canvas меню по всей ширине/высоте экрана */
+  .nav-menu {
+    height: calc(var(--vh, 1vh) 100);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 9999;
+    background: #0b0034a4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* чтобы не было скролла внутри меню */
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+  .nav-menu.show {
+    transform: translateX(0);
+  }
+  .nav-menu a {
+    color: #333232;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 1rem 0;
+    cursor: pointer;
+  }
+  .nav-menu a:hover {
+    color: #bbb;
+  }
+
+
+  /* 5) Компактные кнопки внутри меню */
+  .profile-btn,
+  .lang-btn {
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.4rem 0.8rem !important;
+    font-size: 1rem !important;
+    line-height: normal !important;
+    border-radius: 6px;
+    background: #fff !important;
+    color: #333 !important;
+  }
+  .profile-btn:hover,
+  .lang-btn:hover {
+    background: #eee !important;
+  }
+}
 
 @media screen and (min-width: 769px) and (max-width: 1919px) {
   /* чуть меньше верхнего отступа на «средних» экранах */
