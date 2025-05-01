@@ -475,7 +475,7 @@ button.next:hover {
 }
  
 .grid {
-  color: white;
+  color: rgb(255, 255, 255);
   margin-top: clamp(2rem, 10vh, 6rem);
   text-align: center;
   font-size: clamp(3rem, 10vw, 9rem);
@@ -997,12 +997,13 @@ input[type="file"] {
 .hamburger {
   display: none;
 }
-body.no-scroll {
-  /* при открытом меню блокируем скролл фона */
+.no-scroll {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   /* Показываем бургер */
@@ -1037,44 +1038,61 @@ body.no-scroll {
   }
 
   .nav-menu {
-    height: calc(var(--vh, 1vh) 100);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-
+    height: 100vh;
     z-index: 9999;
-    background: #0b0034a4;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-
     margin: 0;
     padding: 0;
-    overflow: hidden; /* чтобы не было скролла внутри меню */
-
+    overflow: hidden;
+  
+    /* скроем до открытия */
+    opacity: 0;
+    visibility: hidden;
     transform: translateX(100%);
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.25s ease, visibility 0.25s ease;
+  
+    /* 🔧 критично для устранения вспышки */
+    background-color: #0b0034;
+    backface-visibility: hidden;
+    will-change: transform;
   }
+  
   .nav-menu.show {
+    opacity: 1;
+    visibility: visible;
     transform: translateX(0);
   }
+  
+  /* ← ДОБАВЬ: псевдоэлемент, перекрывающий всё моментально */
+  .nav-menu::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: #0b0034;
+    z-index: -1;
+    opacity: 1;
+  }
   .nav-menu a {
-    color: #333232;
+    color: #ffffff;
     font-size: 1.25rem;
     text-decoration: none;
     transition: color 0.3s ease;
     margin: 1rem 0;
     cursor: pointer;
   }
+  
   .nav-menu a:hover {
     color: #bbb;
   }
-  .nav-menu a:hover { color: #bbb; }
   html, body {
     /* для Firefox */
     scrollbar-width: none;

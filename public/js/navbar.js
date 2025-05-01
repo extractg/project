@@ -38,40 +38,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = navMenu.querySelectorAll('a');
 
+let scrollPosition = 0;
+
 function toggleMenu() {
+  const isOpening = !navMenu.classList.contains('show');
+
+  if (isOpening) {
+    // Сохраняем текущую позицию
+    scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    // Фиксируем body
+    document.body.classList.add('no-scroll');
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.position = 'fixed';
+  } else {
+    // Снимаем фиксацию
+    document.body.classList.remove('no-scroll');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    // Возвращаем на ту же позицию
+    window.scrollTo(0, scrollPosition);
+  }
+
   hamburger.classList.toggle('open');
   navMenu.classList.toggle('show');
-
-  if (navMenu.classList.contains('show')) {
-    document.body.classList.add('no-scroll');
-  } else {
-    document.body.classList.remove('no-scroll');
-  }
 }
 
+// Обработка кликов по гамбургеру
 hamburger.addEventListener('click', toggleMenu);
 
+// Обработка кликов по ссылкам
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navMenu.classList.remove('show');
     document.body.classList.remove('no-scroll');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, scrollPosition);
   });
 });
-function updateMenuHeight() {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-
-// Вешаем на resize / orientationchange / scroll
-window.addEventListener('resize', updateMenuHeight);
-window.addEventListener('orientationchange', updateMenuHeight);
-window.addEventListener('scroll', updateMenuHeight);
-
-// При загрузке 
-updateMenuHeight();
