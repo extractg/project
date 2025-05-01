@@ -19,6 +19,7 @@ body {
   scroll-behavior: smooth;
   background: #000812;
   background: linear-gradient(90deg, rgb(1, 1, 18) 0%, rgb(4, 0, 25) 100%);
+  background-attachment: fixed;
 
  }
   header {
