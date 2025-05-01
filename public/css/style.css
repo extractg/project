@@ -649,28 +649,25 @@ button.next:hover {
   color: #a7a7a7;
 }
 
-.custom-file-upload {
-  display: inline-block;
-  padding: clamp(0.625rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  font-weight: 600;
-  background-image: linear-gradient(to right, #7775a9 0%, #9c6aa6 51%, #6e6e9c 100%);
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.3);
-}
 
-.custom-file-upload:hover {
-  box-shadow: 0 0 14px rgba(248, 205, 218, 0.4);
-}
 
-input[type="file"] {
-  display: none;
+@keyframes borderAnimation {
+  0% {
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
+  }
+  25% {
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
+  }
+  50% {
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
+  }
+  75% {
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
+  }
+  100% {
+    border-image-source: linear-gradient(0deg, #c07dffaa, #687cff);
+  }
 }
-
 
 .img-cv {
   position: relative;
