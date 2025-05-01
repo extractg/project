@@ -926,10 +926,6 @@ input[type="file"] {
     font-size: clamp(0.7rem, 1.2vw, 0.7rem);
     line-height: 1.2;
   }
-  .custom-file-upload {
-    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
-    padding: clamp(0.2rem, 1vw, 0.4rem);
-  }
   .grid {
     margin-top: clamp(2rem, 10vh, 6rem);
     text-align: center;
@@ -964,9 +960,7 @@ input[type="file"] {
     font-size: clamp(0.8rem, 2vw, 0.95rem);
     padding: clamp(9px, 1vw, 8px) clamp(10px, 2vw, 15px);
   }
-  .border-cv {
-    margin-left: -20rem;
-  }
+
 }
 @media (max-width: 768px) {
   .sertificate-container {
@@ -1098,11 +1092,10 @@ body.no-scroll {
     padding: clamp(12px, 3vh, 24px) clamp(8px, 3vw, 40px);
   }
   .your-cv,
-  .border-cv,
   .cv-container {
     padding: clamp(1rem, 4vw, 3rem);
   }
-  .border-cv {
+  /*.border-cv {
     max-width: clamp(280px, 40vw, 350px);
   }
   .border-cv h3 {
@@ -1110,7 +1103,7 @@ body.no-scroll {
   }
   .border-cv p {
     font-size: clamp(0.9rem, 2vw, 1rem);
-  }
+  }*/
 
 
   /* логотип чуть поменьше */
