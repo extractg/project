@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       // Здесь можно указать условие для публичных разделов (login.html и sign.up.html оставляем доступными)
-      const publicPages = ['login.html', 'sign.up.html', '#courses', '#pakalpojumi', 'index.html', 'templates.html', 'template.html', 'courses.html'];
+      const publicPages = ['login.html', 'sign.up.html', '#courses', '#pakalpojumi', 'index.html', 'templates.html', 'template.html', 'courses.html', 'index.html#pakalpojumi'];
       
       // Получаем путь, на который ведёт ссылка (без учета ведущего слэша)
       const href = link.getAttribute('href').replace(/^\//, '');
