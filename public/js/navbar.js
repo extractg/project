@@ -81,3 +81,85 @@ navLinks.forEach(link => {
     window.scrollTo(0, scrollPosition);
   });
 });
+// селектор контейнера, куда встраиваем подгруженные страницы
+const MAIN = document.getElementById('main-content');
+const NAV  = document.getElementById('nav-menu');
+
+// утилита: берёт HTML-строку, парсит и выдаёт контент <main id="main-content">
+function extractMain(htmlText) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlText, 'text/html');
+  return doc.getElementById('main-content').innerHTML;
+}
+
+// обработчик кликов по навбара
+NAV.addEventListener('click', async e => {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const href = link.getAttribute('href');
+
+  // только наши внутренние ссылки
+  if (href.startsWith('http') || href.startsWith('mailto:') || link.classList.contains('lang-btn')) {
+    return; // внешние — пусть работают как обычно
+  }
+
+  e.preventDefault();
+
+  try {
+    // подгружаем новую страницу
+    const res = await fetch(href, { credentials: 'same-origin' });
+    if (!res.ok) throw new Error('Network error');
+
+    const htmlText = await res.text();
+    const newMain = extractMain(htmlText);
+
+    // заменяем содержимое
+    MAIN.innerHTML = newMain;
+
+    // обновляем URL в адресной строке
+    history.pushState(null, '', href);
+
+    // если у URL есть hash, прокручиваем к нужному элементу
+    const hash = location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // иначе наверх
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // если нужно — перезапускаем AOS или другие инициализации
+    if (window.AOS) AOS.refresh();
+
+  } catch (err) {
+    console.error('Fetch failed:', err);
+    // при ошибке можно просто перейти обычным способом
+    window.location.href = href;
+  }
+});
+
+// Обработка кнопок назад/вперед
+window.addEventListener('popstate', async () => {
+  try {
+    const res = await fetch(location.pathname + location.hash, { credentials: 'same-origin' });
+    if (!res.ok) throw new Error('Network error');
+
+    const htmlText = await res.text();
+    const newMain = extractMain(htmlText);
+    MAIN.innerHTML = newMain;
+
+    // аналогично скроллим
+    const hash = location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    if (window.AOS) AOS.refresh();
+  } catch (err) {
+    console.error('Popstate fetch failed:', err);
+  }
+});
