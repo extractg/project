@@ -271,3 +271,25 @@ document.addEventListener("DOMContentLoaded", function () {
     // Загружаем язык при старте страницы
     changeLanguage(currentLang);
 });
+  document.addEventListener('DOMContentLoaded', () => {
+    const input  = document.getElementById('pdf-upload');
+    const loader = document.getElementById('upload-loader');
+
+    // клик по кастомной кнопке откроет системный диалог
+    document.querySelector('.upload-label').addEventListener('click', () => {
+      input.click();
+    });
+
+    input.addEventListener('change', () => {
+      if (!input.files.length) return;
+      loader.style.display = 'block';
+
+      // здесь добавить реальный XHR/fetch upload
+      // пока просто имитируем завершение через 2 секунды
+      setTimeout(() => {
+        loader.style.display = 'none';
+        alert('Файл загружен успешно!');
+      }, 2000);
+    });
+  });
+

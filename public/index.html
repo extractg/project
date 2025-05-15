@@ -102,17 +102,57 @@
   </section>
   
   
-  <!--OPTIMIZE SECTION ---> 
-  <section class="optimize">
-    <div class="border">
-      <h1 id="optimize-title" data-aos="fade-up" data-aos-duration="300" data-aos-offset="500">
-        Optimizējiet savu saturu ar mūsu palīgiem un ekspertu padomiem
-      </h1>
-      <p id="optimize-text" data-aos="fade-up" data-aos-duration="300" data-aos-offset="500">
-        Augšupielādējiet savu CV vai motivācijas vēstuli, un mēs palīdzēsim to sakārtot un optimizēt.
-      </p>
+<section class="optimize">
+  <div class="border">
+
+    <!-- Левая часть: заголовок + upload -->
+    <div class="optimize-text" data-aos="fade-up" data-aos-offset="300">
+      <h1>Optimizējiet savu saturu ar mūsu palīgiem un ekspertu padomiem</h1>
+      <p>Augšupielādējiet savu CV vai motivācijas vēstuli, un mēs palīdzēsim to sakārtot un optimizēt.</p>
+
+      <!-- upload-блок -->
+      <label for="pdf-upload" class="upload-card" data-aos="fade-up" data-aos-offset="300" data-aos-delay="200">
+        <input type="file" id="pdf-upload" accept="application/pdf" required hidden>
+        <!-- иконка загрузки -->
+        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 20h14v-2H5v2zm7-18l-5.5 6h3.5v6h4v-6h3.5L12 2z"/>
+        </svg>
+        <span class="upload-text">Ieladēt PDF</span>
+        <!-- иконка успеха -->
+        <svg class="upload-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2l5 5 12-12-1.4-1.4z"/>
+        </svg>
+      </label>
     </div>
-  </section>
+
+    <!-- Правая часть: ваши карточки -->
+    <div class="optimize-cards">
+      <div class="card" data-aos="fade-left" data-aos-offset="260" data-aos-delay="250">
+        <div class="icon"><img src="/public/images/ats.png" alt=""></div>
+        <div>
+          <h3>Readable contact information</h3>
+          <p>Kontakti redzami ATS un cilvēkam.</p>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-left" data-aos-offset="280" data-aos-delay="300">
+        <div class="icon"><img src="/public/images/experience.png" alt=""></div>
+        <div>
+          <h3>Full experience section parsing</h3>
+          <p>Pilna darba pieredze sakārtota un analizēta.</p>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-left" data-aos-offset="300" data-aos-delay="350">
+        <div class="icon"><img src="/public/images/diagram.png" alt=""></div>
+        <div>
+          <h3>Optimized skills section</h3>
+          <p>Jūsu prasmes izceltas un strukturētas.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <section class="grid grid-3">
     <div class="autoBlur" id="quality">LABĀKĀ KVALITĀTE</div>
